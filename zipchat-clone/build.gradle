@@ -104,5 +104,6 @@ dependencies {
     implementation 'ja.burhanrashid52:photoeditor:0.3.3'
 
     implementation "com.android.support:support-core-utils:28.0.0"
+    implementation 'com.github.jitpack:gradle-simple:1.0'
 
 }
