@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/sinch-android-rtc-3.13.0" />
             <option value="$PROJECT_DIR$/zipchat-clone" />
           </set>
         </option>

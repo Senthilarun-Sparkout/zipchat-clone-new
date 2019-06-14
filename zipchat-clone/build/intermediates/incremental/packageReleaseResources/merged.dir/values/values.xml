@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="default_colors">
+        <item>#ff0000</item>
+        <item>#ffff00</item>
+        <item>#00ffff</item>
+        <item>#000000</item>
+    </array>
+    <color name="app_text_color">#494949</color>
+    <color name="black">#000</color>
+    <color name="blue">#1d1c7a</color>
+    <color name="btn_text_color">#353535</color>
+    <color name="colorAccent">#2ab63f</color>
+    <color name="colorPrimary">#2ab63f</color>
+    <color name="colorPrimaryDark">#53ce60</color>
+    <color name="complete_color">#3BBA61</color>
+    <color name="create_group_background">#F2F2F2</color>
+    <color name="dashed">#d1d1d1</color>
+    <color name="frag_back">#EEEEEE</color>
+    <color name="gif_background">#E3E7E8</color>
+    <color name="group_desc_color">#55676F</color>
+    <color name="info_background_color">#EDEDED</color>
+    <color name="info_title_color">#1F7C69</color>
+    <color name="light_grey">#dfdede</color>
+    <color name="light_orange">#b8f9c2</color>
+    <color name="location_background">#e0ffc6</color>
+    <color name="long_press_blue">#B4D7E0</color>
+    <color name="main_color">#BCB9BD</color>
+    <color name="msg_text">#353535</color>
+    <color name="msg_time">#3b3b3b</color>
+    <color name="offline_yellow">#f5a623</color>
+    <color name="online_green">#7ed321</color>
+    <color name="pale_grey">#f2f3f7</color>
+    <color name="pending_color">#efb44a</color>
+    <color name="popup_text_color">#4e4e4e</color>
+    <color name="successful_color">#25cfb1</color>
+    <color name="tab_grey">#8d8d8d</color>
+    <color name="tab_text">#66FFFFFF</color>
+    <color name="toolbar">#DAD9D9</color>
+    <color name="transparent_black">#22000000</color>
+    <color name="view_color">#bfbfbf</color>
+    <color name="warm_grey_two">#8d8d8d</color>
+    <color name="white">#FFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="addmoney_saved_card">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="withdraw_saved_card">220dp</dimen>
+    <string name="CALL_INIT">Call init() before calling this method</string>
+    <string name="ERROR_INFLATER_NULL">Inflater cannot be null</string>
+    <string name="ERROR_PAUSEVIEW_NULL">Pauseview cannot be null</string>
+    <string name="ERROR_PLAYERCONTAINER_NULL">Player container cannot be null</string>
+    <string name="ERROR_PLAYTIME_CURRENT_NEGATIVE">Current playback time cannot be negative</string>
+    <string name="ERROR_PLAYTIME_TOTAL_NEGATIVE">Total playback time cannot be negative</string>
+    <string name="ERROR_PLAYVIEW_NULL">Play view cannot be null</string>
+    <string name="ERROR_URI_NULL">Uri cannot be null</string>
+    <string name="Removed_from_Favourites">Removed from Favourites</string>
+    <string name="URI_NULL">Uri cannot be null. Call init() before calling this method</string>
+    <string name="accept">Accept</string>
+    <string name="account">Account</string>
+    <string name="account_holder">Account Holder</string>
+    <string name="account_number">Account Number</string>
+    <string name="add_group_description">Add group description</string>
+    <string name="add_money">Add Money</string>
+    <string name="add_participant">Add participants</string>
+    <string name="add_subject">Add Subject</string>
+    <string name="add_to_favourite">Add to favourite</string>
+    <string name="added_money">Added Money</string>
+    <string name="added_to_favourites">Added to Favourites</string>
+    <string name="address">Address</string>
+    <string name="address_line1">Address Line 1</string>
+    <string name="address_line2">Address Line 2</string>
+    <string name="amount_deposited">Amount Deposited</string>
+    <string name="amount_received">Amount Received</string>
+    <string name="amount_sent">Amount Sent</string>
+    <string name="amount_to_be_sent">Amount to be Sent</string>
+    <string name="amount_withdrawn">Amount Withdrawn</string>
+    <string name="app_name">ZipChat</string>
+    <string name="available">Available</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="block_contact">Block contact</string>
+    <string name="cancel">Cancel</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="card_number">Card Number</string>
+    <string name="change_password">Change Password</string>
+    <string name="chats">Chats</string>
+    <string name="city">City</string>
+    <string name="clear_chat_content">Are you sure you want to clear?</string>
+    <string name="click_to_play_the_audio">Click to play the Audio</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="contacts">Contacts</string>
+    <string name="contineu">Continue ></string>
+    <string name="cvv">CVV</string>
+    <string name="date">Date</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="default_wallpaper">Default</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="delivered_to">Delivered to</string>
+    <string name="deposited">Deposited</string>
+    <string name="deposited_on">Deposited on</string>
+    <string name="description">Description</string>
+    <string name="discover_by_others">Be Discoverable By Others</string>
+    <string name="dismiss_as_admin">Dismiss as admin</string>
+    <string name="documents">Documents</string>
+    <string name="done">Done</string>
+    <string name="download_over_wifi_only">Download over WIFI only</string>
+    <string name="enter_card_details">Enter Card Details</string>
+    <string name="enter_message">Enter message</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="enter_new_subject">Enter new subject</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_valid_month">Enter valid month</string>
+    <string name="enter_valid_number">Enter valid number</string>
+    <string name="enter_your_amount">Enter your Amount</string>
+    <string name="enter_your_card_number">Enter Your Card Number</string>
+    <string name="enter_your_cvv">CVV</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_mobile">Enter your Phone number to \nreceive the code</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_name_text">Enter your Name so that your friend can recognise you</string>
+    <string name="exit">Exit</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="favourites">Favourites</string>
+    <string name="first_name">First Name</string>
+    <string name="forward_to">Forward to…</string>
+    <string name="full_name">Full Name</string>
+    <string name="gallery">Gallery</string>
+    <string name="group">Group</string>
+    <string name="group_admin">Group Admin</string>
+    <string name="group_created_successfully">Group created Successfully</string>
+    <string name="group_desc_content">The group description is visible to participants of this group</string>
+    <string name="group_description">Group Description</string>
+    <string name="group_info">Group Info</string>
+    <string name="group_subject_content">Provide a group subject and optional group icon</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help">Help</string>
+    <string name="hide_last_seen">Hide Last Seen</string>
+    <string name="insufficient_balance">Insufficient Balance</string>
+    <string name="invalid_otp">Invalid Otp</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="last_name">Last Name</string>
+    <string name="low_amount">Insufficient Balance, Please make a deposit or try lesser amount</string>
+    <string name="make_group_admin">Make group admin</string>
+    <string name="message">Message</string>
+    <string name="message_info">Message info</string>
+    <string name="message_lower">message</string>
+    <string name="message_preview">Message Preview</string>
+    <string name="minimum_member">At least 1 contact must be selected</string>
+    <string name="mm">MM</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="name">Name</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="new_group">New Group</string>
+    <string name="next">Next  ></string>
+    <string name="no">No</string>
+    <string name="no_chats">No Chats</string>
+    <string name="no_contacts">No Contacts</string>
+    <string name="no_contacts_found">No contacts found</string>
+    <string name="no_documents">No documents found</string>
+    <string name="no_internet">Check your Internet Connection !</string>
+    <string name="no_photos">No photos found</string>
+    <string name="no_transactions">No Transactions</string>
+    <string name="no_videos">No videos found</string>
+    <string name="not_found">Not Found</string>
+    <string name="notifications">Notifications</string>
+    <string name="ok">OK</string>
+    <string name="otp_demo_txt">Note - For demo purpose OTP has \n been pre-filled </string>
+    <string name="otp_resend">OTP Resend to your mobile number</string>
+    <string name="otp_send">OTP Send to your mobile number</string>
+    <string name="otp_verified">OTP Verified Successfully</string>
+    <string name="participants">Participants</string>
+    <string name="payments">Payments</string>
+    <string name="pending">Pending</string>
+    <string name="permission_canceled">Permission Canceled, Now your application cannot access CONTACTS.</string>
+    <string name="phone_num_confirm">Phone Number Confirmation</string>
+    <string name="phone_num_confirm_text">We\'ll send a verification code to \nthe following number and email</string>
+    <string name="photos_videos">Photo &amp; Video Library</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="privacy">Privacy</string>
+    <string name="proceed">Proceed</string>
+    <string name="profile">Profile</string>
+    <string name="receive">Receive</string>
+    <string name="receive_money">Receive Money</string>
+    <string name="receive_money_text">Use this QR code (or) use mobile number to receive payments</string>
+    <string name="received">Received</string>
+    <string name="received_from">Received From</string>
+    <string name="received_on">Received on</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="recepient_mobile_number">Recipient Mobile Number</string>
+    <string name="recipient_mobile_number">Recipient Mobile Number</string>
+    <string name="record_video">Record Video</string>
+    <string name="reject">Reject</string>
+    <string name="remaining">remaining</string>
+    <string name="remove">Remove</string>
+    <string name="remove_from_favourite">Remove from favourite</string>
+    <string name="result_not_found">Result Not Found</string>
+    <string name="routing_number">Routing Number</string>
+    <string name="save_this_card">Save this Card</string>
+    <string name="saved_card">Saved Card </string>
+    <string name="scan_code"> Scan the Code and Transfer Money</string>
+    <string name="search_member">Search Member</string>
+    <string name="seeAll">See All</string>
+    <string name="seen_by">Seen by</string>
+    <string name="send">Send</string>
+    <string name="send_money">Send Money</string>
+    <string name="send_xlm">Send XLM</string>
+    <string name="sent">Sent</string>
+    <string name="sent_on">Sent on</string>
+    <string name="sent_to">Sent to</string>
+    <string name="settings">Settings</string>
+    <string name="share_gif_stickers">Share Gif</string>
+    <string name="share_location">Share Location</string>
+    <string name="show_display_picture">Show Display Picture</string>
+    <string name="show_status">Show Status</string>
+    <string name="signin_with_sms">Sign in with SMS</string>
+    <string name="sms_send_to">SMS verification code has been send to</string>
+    <string name="social_security_number">Social Security Number</string>
+    <string name="sounds">Sounds</string>
+    <string name="state">State</string>
+    <string name="status">Status</string>
+    <string name="subject_cant_be_empty">Subject can\'t be empty</string>
+    <string name="successful">Successful</string>
+    <string name="tab_to_seen_the_group_info">tab to seen the group info</string>
+    <string name="tab_to_seen_the_person_info">tab to seen the person info</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="total">Total</string>
+    <string name="transaction_fee">Transaction Fee</string>
+    <string name="transaction_fee_applies">* Transaction Fee Applies</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="type_group_subject">Type group subject here</string>
+    <string name="update_mobile_number">Update Mobile Number</string>
+    <string name="upload_proof">Upload Proof</string>
+    <string name="usd_amount">USD Amount</string>
+    <string name="use_card">Use Card</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="verification_success">Verification Successful</string>
+    <string name="vibrations">Vibration</string>
+    <string name="view">View</string>
+    <string name="waiting_for_accepting">Waiting for accepting</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="withdraw_money">Withdraw Money</string>
+    <string name="withdraw_to_bank_account">Withdraw to bank account</string>
+    <string name="withdrawn">Withdrawn</string>
+    <string name="withdrawn_on">Withdrawn on</string>
+    <string name="write_something_here">Write something here …</string>
+    <string name="yes">Yes</string>
+    <string name="you">You</string>
+    <string name="you_can_use_app">You can use the app now</string>
+    <string name="you_have_accepted">You\'ve accepted</string>
+    <string name="you_have_deposited">You have Deposited</string>
+    <string name="you_have_received">You have Received</string>
+    <string name="you_have_rejected">You\'ve rejected</string>
+    <string name="you_have_sent">You have sent</string>
+    <string name="you_have_withdrawn">You have Withdrawn</string>
+    <string name="you_received_friend_request_to">You received friend request</string>
+    <string name="you_sent_friend_request_to">You sent friend request to</string>
+    <string name="your_friend_request_accepted_by">Your friend request accepted by </string>
+    <string name="your_friend_request_rejected_by">Your friend request rejected by</string>
+    <string name="your_name">Your Name</string>
+    <string name="your_phone">Your Phone</string>
+    <string name="yy">YYYY</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+    <style name="DialogAnimationleftright">
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+    <style name="DialogThemeforview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimationleftright</item>
+    </style>
+    <style name="DialogThemeforview_pop">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="EditText">
+        <item name="android:singleLine">true</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+    </style>
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/colorPrimary</item>
+    </style>
+    <style name="WideDialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">95%</item>
+        <item name="android:windowMinWidthMinor">95%</item>
+    </style>
+    <declare-styleable name="AutofitTextView">
+    <!-- Minimum size of the text. -->
+    <attr format="dimension" name="minTextSize"/>
+    <!-- Amount of precision used to calculate the correct text size to fit within its
+    bounds. Lower precision is more precise and takes more time. -->
+    <attr format="float" name="precision"/>
+    <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
+    <attr format="boolean" name="sizeToFit"/>
+  </declare-styleable>
+    <declare-styleable name="CropImageView">
+    <attr name="cropGuidelines">
+      <enum name="off" value="0"/>
+      <enum name="onTouch" value="1"/>
+      <enum name="on" value="2"/>
+    </attr>
+    <attr name="cropScaleType">
+      <enum name="fitCenter" value="0"/>
+      <enum name="center" value="1"/>
+      <enum name="centerCrop" value="2"/>
+      <enum name="centerInside" value="3"/>
+    </attr>
+    <attr name="cropShape">
+      <enum name="rectangle" value="0"/>
+      <enum name="oval" value="1"/>
+    </attr>
+    <attr format="boolean" name="cropAutoZoomEnabled"/>
+    <attr format="integer" name="cropMaxZoom"/>
+    <attr format="boolean" name="cropMultiTouchEnabled"/>
+    <attr format="boolean" name="cropFixAspectRatio"/>
+    <attr format="integer" name="cropAspectRatioX"/>
+    <attr format="integer" name="cropAspectRatioY"/>
+    <attr format="float" name="cropInitialCropWindowPaddingRatio"/>
+    <attr format="dimension" name="cropBorderLineThickness"/>
+    <attr format="color" name="cropBorderLineColor"/>
+    <attr format="dimension" name="cropBorderCornerThickness"/>
+    <attr format="dimension" name="cropBorderCornerOffset"/>
+    <attr format="dimension" name="cropBorderCornerLength"/>
+    <attr format="color" name="cropBorderCornerColor"/>
+    <attr format="dimension" name="cropGuidelinesThickness"/>
+    <attr format="color" name="cropGuidelinesColor"/>
+    <attr format="color" name="cropBackgroundColor"/>
+    <attr format="dimension" name="cropSnapRadius"/>
+    <attr format="dimension" name="cropTouchRadius"/>
+    <attr format="boolean" name="cropSaveBitmapToInstanceState"/>
+    <attr format="boolean" name="cropShowCropOverlay"/>
+    <attr format="boolean" name="cropShowProgressBar"/>
+    <attr format="dimension" name="cropMinCropWindowWidth"/>
+    <attr format="dimension" name="cropMinCropWindowHeight"/>
+    <attr format="float" name="cropMinCropResultWidthPX"/>
+    <attr format="float" name="cropMinCropResultHeightPX"/>
+    <attr format="float" name="cropMaxCropResultWidthPX"/>
+    <attr format="float" name="cropMaxCropResultHeightPX"/>
+    <attr format="boolean" name="cropFlipHorizontally"/>
+    <attr format="boolean" name="cropFlipVertically"/>
+  </declare-styleable>
+    <declare-styleable name="VerticalSlideColorPicker">
+    <attr format="color" name="borderColor"/>
+    <attr format="color" name="defaultColor"/>
+    <attr format="dimension" name="borderWidth"/>
+    <attr format="reference" name="colors"/>
+  </declare-styleable>
+</resources>
