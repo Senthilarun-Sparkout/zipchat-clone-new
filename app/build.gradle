@@ -16,6 +16,8 @@ android {
     }
 
     buildTypes {
+        debug {
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -34,5 +36,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    implementation project(path: ':zipchat-clone')
 
-    implementation 'com.github.Senthilarun-Sparkout:zipchat-clone-new:1.0.3'
+//    implementation 'com.github.Senthilarun-Sparkout:zipchat-clone-new:1.0.4'
 }
