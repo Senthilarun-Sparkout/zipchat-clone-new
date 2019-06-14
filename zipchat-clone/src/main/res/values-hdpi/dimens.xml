@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- profile activity -->
+    <dimen name="profile_image_height">130dp</dimen>
+    <dimen name="image_btn_paddingRight">80dp</dimen>
+    <dimen name="image_btn_paddingTop">65dp</dimen>
+    <dimen name="layout_marginTop">15dp</dimen>
+    <dimen name="heading_size">15sp</dimen>
+    <dimen name="user_name_text">17sp</dimen>
+    <dimen name="description_size">14sp</dimen>
+
+    <!-- view profile -->
+    <dimen name="viewprofile_cover_img_height">155dp</dimen>
+    <dimen name="viewprofile_pro_img_left">100dp</dimen>
+    <dimen name="viewprofile_pro_img_top">75dp</dimen>
+    <dimen name="viewprofile_toggle_width">120dp</dimen>
+    <dimen name="viewprofile_toggle_height">36dp</dimen>
+    <dimen name="viewprofile_toggle_left">108dp</dimen>
+    <dimen name="viewprofile_toggle_top">185dp</dimen>
+    <dimen name="viewprofile_view_top">10dp</dimen>
+
+    <!--view profile  -->
+    <dimen name="viewprofile_img_icon">110dp</dimen>
+    <dimen name="edit_myprofile_top">8dp</dimen>
+    <dimen name="edit_myprofile_text">14sp</dimen>
+
+
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_chat"
+        android:icon="@drawable/options_icon"
+        android:orderInCategory="100"
+        android:title="@string/settings"
+        app:showAsAction="always">
+
+        <menu>
+
+            <item
+                android:id="@+id/menu_media"
+                android:orderInCategory="100"
+                android:title="Media" />
+
+            <item
+                android:id="@+id/menu_search"
+                android:orderInCategory="100"
+                android:title="Search"
+                app:actionViewClass="android.support.v7.widget.SearchView"
+                app:showAsAction="always|collapseActionView" />
+
+            <item
+                android:id="@+id/menu_clrchat"
+                android:orderInCategory="100"
+                android:title="Clear Chat" />
+
+            <item
+                android:id="@+id/menu_wallpaper"
+                android:orderInCategory="100"
+                android:title="Wallpaper" />
+
+            <item
+                android:id="@+id/menu_block"
+                android:orderInCategory="100"
+                android:title="Block" />
+
+        </menu>
+
+    </item>
+
+</menu>

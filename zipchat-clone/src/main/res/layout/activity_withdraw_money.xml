@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mToolbarWithdrawMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/enter_your_amount"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="16dp" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+                    android:id="@+id/mAvailableBalance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/available_balance"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <include layout="@layout/layout_saved_cards" />
+
+            <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/withdraw_to_bank_account"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawUserFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/first_name"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawUserLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/last_name"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawAccountNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/account_number"
+                android:inputType="number"
+                android:maxLength="16"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="000123456789"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawAccountHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/account_holder"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawRoutingNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/routing_number"
+                android:inputType="number"
+                android:maxLength="16"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="110000000"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawAddressLine1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/address_line1"
+                android:padding="10dp"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawAddressLine2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/address_line2"
+                android:padding="10dp"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawPostal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/postal_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:padding="10dp"
+                android:text="10001"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/city"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textSize="16dp" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/state"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/mobile_number"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:padding="10dp"
+                android:textSize="16dp" />
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                android:id="@+id/mWithdrawSecurityNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/social_security_number"
+                android:inputType="number"
+                android:maxLength="4"
+                android:padding="10dp"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="@string/date"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="10dp"
+                    android:textSize="16dp" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawMonth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="@string/mm"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="10dp"
+                    android:textSize="16dp" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                    android:id="@+id/mWithdrawYear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="@string/yy"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:padding="10dp"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mWithdrawUploadProof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/background_dashed"
+                android:orientation="vertical"
+                android:padding="35dp">
+
+                <LinearLayout
+                    android:id="@+id/mLlUploadProof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/upload_proof" />
+
+                    <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/upload_proof" />
+
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mImgUploadProof"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/defult_user"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/mCbWithdrawSaveCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:buttonTint="@color/colorPrimaryDark"
+                android:text="@string/save_this_card"
+                android:textColor="@color/popup_text_color" />
+
+            <Button
+                android:id="@+id/mBtnWithdrawProceed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn_background"
+                android:text="@string/proceed"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

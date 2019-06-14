@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "779337995581",
+    "firebase_url": "https://zipchatclone.firebaseio.com",
+    "project_id": "zipchatclone",
+    "storage_bucket": "zipchatclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779337995581:android:50637931a30e8879",
+        "android_client_info": {
+          "package_name": "com.chat.zipchat.clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779337995581-e4kmcrvjsmje11nvo10ph1m6t4qcisie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chat.zipchat.clone",
+            "certificate_hash": "1c7392edcccce8de34e5f87e3e485f385a0aa6c9"
+          }
+        },
+        {
+          "client_id": "779337995581-ipaleacuqpenfcv2b7kvvlvvqlg67kt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKEOkXfdItitlWwQnO3dVMvLO5FycHqGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779337995581-ipaleacuqpenfcv2b7kvvlvvqlg67kt9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

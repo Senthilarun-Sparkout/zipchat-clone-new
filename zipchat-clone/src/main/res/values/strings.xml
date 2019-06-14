@@ -1,0 +1,285 @@
+<resources>
+    <string name="app_name">ZipChat</string>
+
+
+    <string name="next">Next  ></string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="contineu">Continue ></string>
+    <string name="proceed">Proceed</string>
+    <string name="you">You</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="no_internet">Check your Internet Connection !</string>
+
+
+    <string name="signin_with_sms">Sign in with SMS</string>
+    <string name="enter_your_mobile">Enter your Phone number to \nreceive the code</string>
+    <string name="your_phone">Your Phone</string>
+    <string name="phone_num_confirm">Phone Number Confirmation</string>
+    <string name="phone_num_confirm_text">We\'ll send a verification code to \nthe following number and email</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="sms_send_to">SMS verification code has been send to</string>
+    <string name="verification_success">Verification Successful</string>
+    <string name="you_can_use_app">You can use the app now</string>
+    <string name="your_name">Your Name</string>
+    <string name="enter_your_name_text">Enter your Name so that your friend can recognise you</string>
+
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="status">Status</string>
+    <string name="block_contact">Block contact</string>
+    <string name="add_to_favourite">Add to favourite</string>
+    <string name="remove_from_favourite">Remove from favourite</string>
+    <string name="write_something_here">Write something here …</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="photos_videos">Photo &amp; Video Library</string>
+    <string name="documents">Documents</string>
+    <string name="favourites">Favourites</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+
+
+    <!--NavigationMenu-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="chats">Chats</string>
+    <string name="contacts">Contacts</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="payments">Payments</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="help">Help</string>
+
+    <!--PopupMenu-->
+    <string name="message">Message</string>
+    <string name="view">View</string>
+    <string name="make_group_admin">Make group admin</string>
+    <string name="dismiss_as_admin">Dismiss as admin</string>
+    <string name="remove">Remove</string>
+
+
+    <!--Settings-->
+    <string name="privacy">Privacy</string>
+    <string name="notifications">Notifications</string>
+    <string name="account">Account</string>
+    <string name="delete_account">Delete Account</string>
+
+
+    <string name="discover_by_others">Be Discoverable By Others</string>
+    <string name="show_status">Show Status</string>
+    <string name="hide_last_seen">Hide Last Seen</string>
+    <string name="download_over_wifi_only">Download over WIFI only</string>
+    <string name="show_display_picture">Show Display Picture</string>
+    <string name="sounds">Sounds</string>
+    <string name="vibrations">Vibration</string>
+    <string name="message_preview">Message Preview</string>
+    <string name="update_mobile_number">Update Mobile Number</string>
+    <string name="change_password">Change Password</string>
+    <string name="available">Available</string>
+    <string name="available_balance">Available Balance</string>
+
+    <string name="amount_to_be_sent">Amount to be Sent</string>
+    <string name="transaction_fee">Transaction Fee</string>
+    <string name="total">Total</string>
+
+    <string name="deposited">Deposited</string>
+
+
+    <!--Not Texts-->
+    <string name="no_chats">No Chats</string>
+    <string name="no_contacts">No Contacts</string>
+    <string name="no_contacts_found">No contacts found</string>
+    <string name="no_photos">No photos found</string>
+    <string name="no_videos">No videos found</string>
+    <string name="no_documents">No documents found</string>
+    <string name="no_transactions">No Transactions</string>
+
+    <!--Payments-->
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="add_money">Add Money</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="share_location">Share Location</string>
+    <string name="share_gif_stickers">Share Gif</string>
+    <string name="record_video">Record Video</string>
+    <string name="seeAll">See All</string>
+
+    <string name="send_xlm">Send XLM</string>
+
+    <string name="recepient_mobile_number">Recipient Mobile Number</string>
+    <string name="send_money">Send Money</string>
+    <string name="receive_money">Receive Money</string>
+    <string name="receive_money_text">Use this QR code (or) use mobile number to receive payments</string>
+    <string name="withdraw_money">Withdraw Money</string>
+    <string name="transaction_history">Transaction History</string>
+
+    <string name="withdraw_to_bank_account">Withdraw to bank account</string>
+    <string name="enter_your_amount">Enter your Amount</string>
+    <string name="recipient_mobile_number">Recipient Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="social_security_number">Social Security Number</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="upload_proof">Upload Proof</string>
+
+
+    <!--CardDetails-->
+    <string name="enter_your_card_number">Enter Your Card Number</string>
+    <string name="enter_card_details">Enter Card Details</string>
+    <string name="date">Date</string>
+    <string name="mm">MM</string>
+    <string name="yy">YYYY</string>
+    <string name="enter_your_cvv">CVV</string>
+    <string name="save_this_card">Save this Card</string>
+
+    <string name="enter_valid_month">Enter valid month</string>
+
+    <string name="saved_card">Saved Card </string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="cvv">CVV</string>
+
+    <string name="sent">Sent</string>
+    <string name="received">Received</string>
+    <string name="added_money">Added Money</string>
+    <string name="withdrawn">Withdrawn</string>
+
+    <string name="full_name">Full Name</string>
+    <string name="account_number">Account Number</string>
+    <string name="account_holder">Account Holder</string>
+    <string name="routing_number">Routing Number</string>
+    <string name="use_card">Use Card</string>
+
+    <string name="pending">Pending</string>
+    <string name="successful">Successful</string>
+
+    <string name="result_not_found">Result Not Found</string>
+    <string name="transaction_fee_applies">* Transaction Fee Applies</string>
+
+    <!--Message-->
+    <string name="address_line1">Address Line 1</string>
+    <string name="address_line2">Address Line 2</string>
+    <string name="enter_valid_number">Enter valid number</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_message">Enter message</string>
+    <string name="otp_verified">OTP Verified Successfully</string>
+    <string name="invalid_otp">Invalid Otp</string>
+    <string name="otp_send">OTP Send to your mobile number</string>
+    <string name="otp_resend">OTP Resend to your mobile number</string>
+    <string name="added_to_favourites">Added to Favourites</string>
+    <string name="Removed_from_Favourites">Removed from Favourites</string>
+    <string name="permission_canceled">Permission Canceled, Now your application cannot access CONTACTS.</string>
+    <string name="not_found">Not Found</string>
+
+    <string name="contact_info">Contact Info</string>
+    <string name="minimum_member">At least 1 contact must be selected</string>
+
+    <string name="low_amount">Insufficient Balance, Please make a deposit or try lesser amount</string>
+    <string name="insufficient_balance">Insufficient Balance</string>
+
+    <dimen name="addmoney_saved_card">160dp</dimen>
+    <dimen name="withdraw_saved_card">220dp</dimen>
+
+
+    <string name="scan_code"> Scan the Code and Transfer Money</string>
+
+    <!--popup-->
+    <string name="you_have_sent">You have sent</string>
+    <string name="you_have_received">You have Received</string>
+    <string name="you_have_deposited">You have Deposited</string>
+    <string name="you_have_withdrawn">You have Withdrawn</string>
+
+    <string name="sent_to">Sent to</string>
+    <string name="received_from">Received From</string>
+    <string name="usd_amount">USD Amount</string>
+
+    <string name="sent_on">Sent on</string>
+    <string name="received_on">Received on</string>
+    <string name="deposited_on">Deposited on</string>
+    <string name="withdrawn_on">Withdrawn on</string>
+
+    <string name="amount_sent">Amount Sent</string>
+    <string name="amount_received">Amount Received</string>
+    <string name="amount_deposited">Amount Deposited</string>
+    <string name="amount_withdrawn">Amount Withdrawn</string>
+
+    <string name="gallery">Gallery</string>
+    <string name="default_wallpaper">Default</string>
+    <string name="wallpaper">Wallpaper</string>
+
+    <string name="clear_chat_content">Are you sure you want to clear?</string>
+    <string name="exit">Exit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="otp_demo_txt">Note - For demo purpose OTP has \n been pre-filled </string>
+    <string name="tab_to_seen_the_person_info">tab to seen the person info</string>
+    <string name="click_to_play_the_audio">Click to play the Audio</string>
+
+    <!--Audio Strings-->
+    <string name="ERROR_PLAYVIEW_NULL">Play view cannot be null</string>
+    <string name="URI_NULL">Uri cannot be null. Call init() before calling this method</string>
+    <string name="CALL_INIT">Call init() before calling this method</string>
+    <string name="ERROR_PLAYTIME_CURRENT_NEGATIVE">Current playback time cannot be negative</string>
+    <string name="ERROR_PLAYTIME_TOTAL_NEGATIVE">Total playback time cannot be negative</string>
+    <string name="ERROR_PAUSEVIEW_NULL">Pauseview cannot be null</string>
+    <string name="ERROR_PLAYERCONTAINER_NULL">Player container cannot be null</string>
+    <string name="ERROR_INFLATER_NULL">Inflater cannot be null</string>
+    <string name="ERROR_URI_NULL">Uri cannot be null</string>
+    <string name="search_member">Search Member</string>
+
+
+    <!--Group Strings-->
+
+    <string name="group_created_successfully">Group created Successfully</string>
+    <string name="new_group">New Group</string>
+    <string name="participants">Participants</string>
+    <string name="add_participant">Add participants</string>
+    <string name="description">Description</string>
+    <string name="add_group_description">Add group description</string>
+    <string name="add_subject">Add Subject</string>
+    <string name="type_group_subject">Type group subject here</string>
+    <string name="group_subject_content">Provide a group subject and optional group icon</string>
+    <string name="group_info">Group Info</string>
+    <string name="group">Group</string>
+    <string name="group_admin">Group Admin</string>
+    <string name="tab_to_seen_the_group_info">tab to seen the group info</string>
+    <string name="enter_new_subject">Enter new subject</string>
+    <string name="subject_cant_be_empty">Subject can\'t be empty</string>
+    <string name="group_description">Group Description</string>
+    <string name="group_desc_content">The group description is visible to participants of this group</string>
+
+    <string name="seen_by">Seen by</string>
+    <string name="delivered_to">Delivered to</string>
+    <string name="remaining">remaining</string>
+    <string name="message_info">Message info</string>
+    <string name="forward_to">Forward to…</string>
+
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="waiting_for_accepting">Waiting for accepting</string>
+
+    <string name="you_sent_friend_request_to">You sent friend request to</string>
+    <string name="you_received_friend_request_to">You received friend request</string>
+    <string name="your_friend_request_rejected_by">Your friend request rejected by</string>
+    <string name="your_friend_request_accepted_by">Your friend request accepted by </string>
+    <string name="you_have_rejected">You\'ve rejected</string>
+    <string name="you_have_accepted">You\'ve accepted</string>
+    <string name="message_lower">message</string>
+
+</resources>

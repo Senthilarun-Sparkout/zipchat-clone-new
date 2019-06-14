@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/white">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mRlChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/mImgContact"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingStart="5dp"
+            android:src="@drawable/defult_user" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/mImgContact"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+                android:id="@+id/mTxtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Unknown"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imgTik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/orangetik"
+                    android:visibility="gone" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+                    android:id="@+id/mTxtMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toLeftOf="@id/mTxtTime"
+                    android:layout_toRightOf="@id/imgTik"
+                    android:singleLine="true"
+                    android:textSize="13sp" />
+
+                <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+                    android:id="@+id/mTxtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/msg_time"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
+
