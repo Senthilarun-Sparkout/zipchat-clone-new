@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="description_size">10sp</dimen>
+    <dimen name="edit_myprofile_text">14sp</dimen>
+    <dimen name="edit_myprofile_top">8dp</dimen>
+    <dimen name="heading_size">13sp</dimen>
+    <dimen name="image_btn_paddingRight">85dp</dimen>
+    <dimen name="image_btn_paddingTop">55dp</dimen>
+    <dimen name="layout_marginTop">20dp</dimen>
+    <dimen name="profile_image_height">110dp</dimen>
+    <dimen name="user_name_text">15sp</dimen>
+    <dimen name="viewprofile_cover_img_height">150dp</dimen>
+    <dimen name="viewprofile_img_icon">100dp</dimen>
+    <dimen name="viewprofile_pro_img_left">100dp</dimen>
+    <dimen name="viewprofile_pro_img_top">75dp</dimen>
+    <dimen name="viewprofile_toggle_height">32dp</dimen>
+    <dimen name="viewprofile_toggle_left">100dp</dimen>
+    <dimen name="viewprofile_toggle_top">170dp</dimen>
+    <dimen name="viewprofile_toggle_width">110dp</dimen>
+    <dimen name="viewprofile_view_top">15dp</dimen>
+</resources>

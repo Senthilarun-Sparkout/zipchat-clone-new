@@ -56,11 +56,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java', 'build/generated/source/greendao']
-        }
-    }
 }
 
 dependencies {

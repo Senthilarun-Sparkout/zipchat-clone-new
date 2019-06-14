@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:gravity="center"
+        android:text="@string/verification_code"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
+
+    <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/sms_send_to"
+        android:textSize="15sp" />
+
+    <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+        android:id="@+id/mTvPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+        android:id="@+id/mTvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:text="Pin Code"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp">
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeF"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeFo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeFi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+            android:id="@+id/mEtCodeSix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="5"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLlResend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Didn't receive OTP ?"
+            android:textSize="15sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+            android:id="@+id/mtvResendOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Resend Code"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLlCounten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OTP will Receive in"
+            android:textSize="15sp" />
+
+        <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+            android:id="@+id/mTvCounten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/otp_demo_txt"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+</LinearLayout>

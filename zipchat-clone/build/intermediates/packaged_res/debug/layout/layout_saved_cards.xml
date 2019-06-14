@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mLlSavedCards"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.chat.zipchat.clone.CustomText.CustomBoldTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/saved_card"
+        android:textColor="@color/popup_text_color"
+        android:textSize="17sp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mSavedCardViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <LinearLayout
+        android:id="@+id/mSavedCardLayoutDots"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+</LinearLayout>
