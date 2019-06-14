@@ -61,46 +61,38 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.mDeleteAccount:
-                logout_User(getActivity());
-                break;
+        if (v.getId() == R.id.mDeleteAccount) {
+            logout_User(getActivity());
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()) {
-            case R.id.mSwitchHideLastSeen:
+        int i = buttonView.getId();
+        if (i == R.id.mSwitchHideLastSeen) {
+            DatabaseReference userLastOnlineRef = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(getActivity())).child("profile-details");
 
-                DatabaseReference userLastOnlineRef = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(getActivity())).child("profile-details");
+            if (isOnline(getActivity())) {
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("isOnline", "1");
+                map.put("offline-time", ConvertedDateTime());
+                map.put("name", sharedPreferences(getActivity()).getString(KEY_USERNAME, null));
+                map.put("mobile-number", sharedPreferences(getActivity()).getString(PHONE, null));
+                map.put("profile-url", sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null));
+                map.put("status", sharedPreferences(getActivity()).getString(STATUS, null));
 
-                if (isOnline(getActivity())) {
-                    HashMap<String, Object> map = new HashMap<>();
-                    map.put("isOnline", "1");
-                    map.put("offline-time", ConvertedDateTime());
-                    map.put("name", sharedPreferences(getActivity()).getString(KEY_USERNAME, null));
-                    map.put("mobile-number", sharedPreferences(getActivity()).getString(PHONE, null));
-                    map.put("profile-url", sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null));
-                    map.put("status", sharedPreferences(getActivity()).getString(STATUS, null));
+                sessionManager(getActivity()).HideLastSeen(mSwitchHideLastSeen.isChecked());
 
-                    sessionManager(getActivity()).HideLastSeen(mSwitchHideLastSeen.isChecked());
-
-                    if (sessionManager(getActivity()).isHideLastSeen()) {
-                        map.put("hide-last-seen", "1");
-                    } else {
-                        map.put("hide-last-seen", "0");
-                    }
-
-                    userLastOnlineRef.updateChildren(map);
+                if (sessionManager(getActivity()).isHideLastSeen()) {
+                    map.put("hide-last-seen", "1");
+                } else {
+                    map.put("hide-last-seen", "0");
                 }
 
-                break;
-
-            case R.id.mSwitchDownloadOverWifi:
-                sessionManager(getActivity()).setDownloadOnlyWifi(mSwitchDownloadOverWifi.isChecked());
-                break;
+                userLastOnlineRef.updateChildren(map);
+            }
+        } else if (i == R.id.mSwitchDownloadOverWifi) {
+            sessionManager(getActivity()).setDownloadOnlyWifi(mSwitchDownloadOverWifi.isChecked());
         }
     }
 

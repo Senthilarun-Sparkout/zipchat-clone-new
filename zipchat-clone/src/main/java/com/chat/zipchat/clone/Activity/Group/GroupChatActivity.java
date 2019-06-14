@@ -580,133 +580,109 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.menu_media:
-                Intent mediaIntent = new Intent(this, MediaActivity.class);
-                mediaIntent.putExtra("toId", toId);
-                mediaIntent.putExtra("Name", mTxtContactName.getText().toString());
-                startActivity(mediaIntent);
-                break;
-            case R.id.menu_search:
-                break;
-            case R.id.menu_clrchat:
-                if (isOnline(this))
-                    clearChat();
-                break;
-            case R.id.menu_wallpaper:
-                showWallPaperDialog();
-                break;
-            case R.id.menu_block:
-                break;
+        int i = item.getItemId();
+        if (i == R.id.menu_media) {
+            Intent mediaIntent = new Intent(this, MediaActivity.class);
+            mediaIntent.putExtra("toId", toId);
+            mediaIntent.putExtra("Name", mTxtContactName.getText().toString());
+            startActivity(mediaIntent);
+        } else if (i == R.id.menu_search) {
+        } else if (i == R.id.menu_clrchat) {
+            if (isOnline(this))
+                clearChat();
+        } else if (i == R.id.menu_wallpaper) {
+            showWallPaperDialog();
+        } else if (i == R.id.menu_block) {
         }
         return true;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mImgBackChat:
-                onBackPressed();
-                break;
-            case R.id.mImgEmoji:
-                close_dialog();
-                break;
-            case R.id.mTxtMessage:
-                close_dialog();
-                break;
-            case R.id.mImgRecVideo:
-                Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(takeVideoIntent, MY_REQUEST_CODE_VIDEO);
-                }
-                break;
-            case R.id.mPaymentsRl:
-                close_dialog();
-                break;
-            case R.id.mPhotosRl:
-                imagePicker();
-                break;
-            case R.id.mDocumentRl:
-                documentPicker();
-                break;
-            case R.id.mLocationRl:
-                ShareLocation();
-                break;
-            case R.id.mImgAdd:
-                if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                    ShowHideKeyboard(this, true, mTxtMessage);
-                } else {
-                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                }
-                break;
-            case R.id.mImgSend:
-                if (TextUtils.isEmpty(mTxtMessage.getText().toString())) {
-                    myToast(this, getResources().getString(R.string.enter_message));
-                } else if (isEditedMsg) {
-                    EditMessage(multiselect_list.get(0));
-                } else {
-                    sendMsg();
-                }
-                break;
-            case R.id.mRlToolbarChat:
-                Intent intent = new Intent(this, GroupInfoActivity.class);
-                intent.putExtra("toId", toId);
-                startActivity(intent);
-                break;
-            case R.id.iv_call:
-                if (App.getmInstance().sinchClient != null) {
-                    com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUser(toId);
-                    String strCallId = call.getCallId();
-                    startActivity(new Intent(GroupChatActivity.this, AudioCallActivity.class)
-                            .putExtra("call_id", strCallId));
-                }
-                break;
-            case R.id.iv_video_call:
-                if (App.getmInstance().sinchClient != null) {
-                    com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUserVideo(toId);
-                    String strCallId = call.getCallId();
-                    startActivity(new Intent(GroupChatActivity.this, VideoCallActivity.class)
-                            .putExtra("call_id", strCallId));
-                }
-                break;
-            case R.id.mImgBtnGif:
+        int i = v.getId();
+        if (i == R.id.mImgBackChat) {
+            onBackPressed();
+        } else if (i == R.id.mImgEmoji) {
+            close_dialog();
+        } else if (i == R.id.mTxtMessage) {
+            close_dialog();
+        } else if (i == R.id.mImgRecVideo) {
+            Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takeVideoIntent, MY_REQUEST_CODE_VIDEO);
+            }
+        } else if (i == R.id.mPaymentsRl) {
+            close_dialog();
+        } else if (i == R.id.mPhotosRl) {
+            imagePicker();
+        } else if (i == R.id.mDocumentRl) {
+            documentPicker();
+        } else if (i == R.id.mLocationRl) {
+            ShareLocation();
+        } else if (i == R.id.mImgAdd) {
+            if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                ShowHideKeyboard(this, true, mTxtMessage);
+            } else {
+                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        } else if (i == R.id.mImgSend) {
+            if (TextUtils.isEmpty(mTxtMessage.getText().toString())) {
+                myToast(this, getResources().getString(R.string.enter_message));
+            } else if (isEditedMsg) {
+                EditMessage(multiselect_list.get(0));
+            } else {
+                sendMsg();
+            }
+        } else if (i == R.id.mRlToolbarChat) {
+            Intent intent = new Intent(this, GroupInfoActivity.class);
+            intent.putExtra("toId", toId);
+            startActivity(intent);
+        } else if (i == R.id.iv_call) {
+            if (App.getmInstance().sinchClient != null) {
+                com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUser(toId);
+                String strCallId = call.getCallId();
+                startActivity(new Intent(GroupChatActivity.this, AudioCallActivity.class)
+                        .putExtra("call_id", strCallId));
+            }
+        } else if (i == R.id.iv_video_call) {
+            if (App.getmInstance().sinchClient != null) {
+                com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUserVideo(toId);
+                String strCallId = call.getCallId();
+                startActivity(new Intent(GroupChatActivity.this, VideoCallActivity.class)
+                        .putExtra("call_id", strCallId));
+            }
+        } else if (i == R.id.mImgBtnGif) {
+            mProgressGifStrikers.setVisibility(View.VISIBLE);
+            mRvGif.setVisibility(View.GONE);
+            mRvStrikers.setVisibility(View.GONE);
+            GetGif();
+        } else if (i == R.id.mImgBtnStickers) {
+            mProgressGifStrikers.setVisibility(View.VISIBLE);
+            mRvGif.setVisibility(View.GONE);
+            mRvStrikers.setVisibility(View.GONE);
+            GetStickers();
+        } else if (i == R.id.mImgIconGifStickers) {
+            if (mKeyBoardGifStrikers.getVisibility() == View.VISIBLE) {
+                ShowHideKeyboard(this, false, mTxtMessage);
+                mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_gif));
+                mKeyBoardGifStrikers.setVisibility(View.GONE);
+
+            } else {
+                ShowHideKeyboard(this, true, mTxtMessage);
+                mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_keyboard));
                 mProgressGifStrikers.setVisibility(View.VISIBLE);
+                mKeyBoardGifStrikers.setVisibility(View.VISIBLE);
                 mRvGif.setVisibility(View.GONE);
                 mRvStrikers.setVisibility(View.GONE);
                 GetGif();
-                break;
-            case R.id.mImgBtnStickers:
-                mProgressGifStrikers.setVisibility(View.VISIBLE);
-                mRvGif.setVisibility(View.GONE);
-                mRvStrikers.setVisibility(View.GONE);
-                GetStickers();
-                break;
-            case R.id.mImgIconGifStickers:
-
-                if (mKeyBoardGifStrikers.getVisibility() == View.VISIBLE) {
-                    ShowHideKeyboard(this, false, mTxtMessage);
-                    mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_gif));
-                    mKeyBoardGifStrikers.setVisibility(View.GONE);
-
-                } else {
-                    ShowHideKeyboard(this, true, mTxtMessage);
-                    mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_keyboard));
-                    mProgressGifStrikers.setVisibility(View.VISIBLE);
-                    mKeyBoardGifStrikers.setVisibility(View.VISIBLE);
-                    mRvGif.setVisibility(View.GONE);
-                    mRvStrikers.setVisibility(View.GONE);
-                    GetGif();
-                }
-
-                break;
-            case R.id.mImgCancel:
-                isEditedMsg = false;
-                mTxtMessage.setText("");
-                mImgCancel.setVisibility(View.GONE);
-                mImgSend.setVisibility(View.GONE);
-                mImgRecAudio.setVisibility(View.VISIBLE);
-                break;
+            }
+        } else if (i == R.id.mImgCancel) {
+            isEditedMsg = false;
+            mTxtMessage.setText("");
+            mImgCancel.setVisibility(View.GONE);
+            mImgSend.setVisibility(View.GONE);
+            mImgRecAudio.setVisibility(View.VISIBLE);
         }
     }
 
@@ -1564,41 +1540,38 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.mDeleteChat:
-                    for (int i = 0; i < multiselect_list.size(); i++) {
-                        List<ChatPojo> chatPojos = App.getmInstance().chatPojoDao.queryBuilder().where(ChatPojoDao.Properties.MessageId.eq(multiselect_list.get(i).getMessageId())).list();
-                        App.getmInstance().daoSession.getChatPojoDao().deleteInTx(chatPojos);
-                        referenceUser.child(toId).child(String.valueOf(multiselect_list.get(i).getMessageId())).removeValue();
-                    }
-                    mode.finish();
-                    return true;
-
-                case R.id.mEditChat:
-                    isEditedMsg = true;
-                    mTxtMessage.setText(multiselect_list.get(0).getText());
-                    ShowHideKeyboard(GroupChatActivity.this, false, mTxtMessage);
-                    mode.finish();
-                    return true;
-
-                case R.id.mInfoChat:
-                    Intent msgInfo = new Intent(GroupChatActivity.this, MessageInfoActivity.class);
-                    msgInfo.putExtra("messageInfo", multiselect_list.get(0));
-                    startActivity(msgInfo);
-                    mode.finish();
-                    return true;
-                case R.id.mReplyChat:
-                    mode.finish();
-                    return true;
-                case R.id.mForwardChat:
-                    Intent msgForward = new Intent(GroupChatActivity.this, ForwardActivity.class);
-                    msgForward.putExtra("messageForward", multiselect_list.get(0));
-                    startActivity(msgForward);
-                    mode.finish();
-                    return true;
-                default:
-                    return false;
+            int i1 = item.getItemId();
+            if (i1 == R.id.mDeleteChat) {
+                for (int i = 0; i < multiselect_list.size(); i++) {
+                    List<ChatPojo> chatPojos = App.getmInstance().chatPojoDao.queryBuilder().where(ChatPojoDao.Properties.MessageId.eq(multiselect_list.get(i).getMessageId())).list();
+                    App.getmInstance().daoSession.getChatPojoDao().deleteInTx(chatPojos);
+                    referenceUser.child(toId).child(String.valueOf(multiselect_list.get(i).getMessageId())).removeValue();
+                }
+                mode.finish();
+                return true;
+            } else if (i1 == R.id.mEditChat) {
+                isEditedMsg = true;
+                mTxtMessage.setText(multiselect_list.get(0).getText());
+                ShowHideKeyboard(GroupChatActivity.this, false, mTxtMessage);
+                mode.finish();
+                return true;
+            } else if (i1 == R.id.mInfoChat) {
+                Intent msgInfo = new Intent(GroupChatActivity.this, MessageInfoActivity.class);
+                msgInfo.putExtra("messageInfo", multiselect_list.get(0));
+                startActivity(msgInfo);
+                mode.finish();
+                return true;
+            } else if (i1 == R.id.mReplyChat) {
+                mode.finish();
+                return true;
+            } else if (i1 == R.id.mForwardChat) {
+                Intent msgForward = new Intent(GroupChatActivity.this, ForwardActivity.class);
+                msgForward.putExtra("messageForward", multiselect_list.get(0));
+                startActivity(msgForward);
+                mode.finish();
+                return true;
             }
+            return false;
         }
 
         @Override

@@ -115,48 +115,39 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.mToolEdit:
-
-                if (item.getTitle().equals("Edit")) {
-                    item.setTitle("Save");
-                    mUserName.setEnabled(true);
-                    mStatus.setEnabled(true);
-                    value = 1;
-                } else if (item.getTitle().equals("Save")) {
-                    item.setTitle("Edit");
-                    mUserName.setEnabled(false);
-                    mStatus.setEnabled(false);
-                    value = 0;
-                    if (Validation()) {
-                        UpdateProfileService();
-                    }
+        if (item.getItemId() == R.id.mToolEdit) {
+            if (item.getTitle().equals("Edit")) {
+                item.setTitle("Save");
+                mUserName.setEnabled(true);
+                mStatus.setEnabled(true);
+                value = 1;
+            } else if (item.getTitle().equals("Save")) {
+                item.setTitle("Edit");
+                mUserName.setEnabled(false);
+                mStatus.setEnabled(false);
+                value = 0;
+                if (Validation()) {
+                    UpdateProfileService();
                 }
-
-
-                break;
+            }
         }
         return true;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mImgUser:
-
-                if (value == 0) {
-                    if ("null" != sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null) && !TextUtils.isEmpty(sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null))) {
-                        Intent mImageIntent = new Intent(getActivity(), ZoomActivity.class);
-                        mImageIntent.putExtra("Value", 2);
-                        mImageIntent.putExtra("URL", sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null));
-                        startActivity(mImageIntent);
-                    }
-                } else if (value == 1) {
-
-                    imagePicker();
+        if (v.getId() == R.id.mImgUser) {
+            if (value == 0) {
+                if ("null" != sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null) && !TextUtils.isEmpty(sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null))) {
+                    Intent mImageIntent = new Intent(getActivity(), ZoomActivity.class);
+                    mImageIntent.putExtra("Value", 2);
+                    mImageIntent.putExtra("URL", sharedPreferences(getActivity()).getString(KEY_PROFILE_PIC, null));
+                    startActivity(mImageIntent);
                 }
+            } else if (value == 1) {
 
-                break;
+                imagePicker();
+            }
         }
     }
 

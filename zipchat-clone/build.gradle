@@ -11,6 +11,7 @@ buildscript {
 
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }

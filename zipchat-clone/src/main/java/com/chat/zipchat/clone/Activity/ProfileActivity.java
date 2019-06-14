@@ -71,19 +71,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mBtnContinue:
-                if (TextUtils.isEmpty(mEtName.getText().toString())) {
-                    mEtName.setError("Enter your Name");
-                    mEtName.requestFocus();
-                } else {
-                    UpdateProfileService();
-                }
-                break;
-
-            case R.id.mBtnCamera:
-                imagePicker();
-                break;
+        int i = v.getId();
+        if (i == R.id.mBtnContinue) {
+            if (TextUtils.isEmpty(mEtName.getText().toString())) {
+                mEtName.setError("Enter your Name");
+                mEtName.requestFocus();
+            } else {
+                UpdateProfileService();
+            }
+        } else if (i == R.id.mBtnCamera) {
+            imagePicker();
         }
     }
 

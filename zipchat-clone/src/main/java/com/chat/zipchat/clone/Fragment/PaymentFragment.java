@@ -107,10 +107,8 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.mToolScanner:
-                Scanning();
-                break;
+        if (item.getItemId() == R.id.mToolScanner) {
+            Scanning();
         }
         return true;
     }
@@ -118,29 +116,22 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-
-            case R.id.mLlSend:
-                Intent mSendMoney = new Intent(mContext, SendMoneyActivity.class);
-                startActivity(mSendMoney);
-                break;
-            case R.id.mLlReceive:
-                Intent mReceiveMoney = new Intent(mContext, ReceiveMoneyActivity.class);
-                startActivity(mReceiveMoney);
-                break;
-            case R.id.mLlAddMoney:
-                Intent mAddMoney = new Intent(mContext, AddMoneyActivity.class);
-                startActivity(mAddMoney);
-                break;
-            case R.id.mLlWithdraw:
-                Intent mWithdrawMoney = new Intent(mContext, WithdrawMoneyActivity.class);
-                startActivity(mWithdrawMoney);
-                break;
-            case R.id.mSeeAll:
-                Intent mTransHistory = new Intent(mContext, TransHistoryActivity.class);
-                startActivity(mTransHistory);
-                break;
-
+        int i = v.getId();
+        if (i == R.id.mLlSend) {
+            Intent mSendMoney = new Intent(mContext, SendMoneyActivity.class);
+            startActivity(mSendMoney);
+        } else if (i == R.id.mLlReceive) {
+            Intent mReceiveMoney = new Intent(mContext, ReceiveMoneyActivity.class);
+            startActivity(mReceiveMoney);
+        } else if (i == R.id.mLlAddMoney) {
+            Intent mAddMoney = new Intent(mContext, AddMoneyActivity.class);
+            startActivity(mAddMoney);
+        } else if (i == R.id.mLlWithdraw) {
+            Intent mWithdrawMoney = new Intent(mContext, WithdrawMoneyActivity.class);
+            startActivity(mWithdrawMoney);
+        } else if (i == R.id.mSeeAll) {
+            Intent mTransHistory = new Intent(mContext, TransHistoryActivity.class);
+            startActivity(mTransHistory);
         }
     }
 

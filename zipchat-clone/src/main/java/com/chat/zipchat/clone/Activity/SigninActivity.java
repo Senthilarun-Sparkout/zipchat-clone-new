@@ -118,25 +118,17 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.mBtnNext:
-                if (validation()) {
-                    ConfirmDialog();
-                }
-
-                break;
-
-            case R.id.mBtnOk:
-                if (validation()) {
-                    RegisterService();
-                }
-
-                break;
-
-            case R.id.mBtnCancel:
-                mConfirmPhoneDialog.dismiss();
-                break;
+        int i = v.getId();
+        if (i == R.id.mBtnNext) {
+            if (validation()) {
+                ConfirmDialog();
+            }
+        } else if (i == R.id.mBtnOk) {
+            if (validation()) {
+                RegisterService();
+            }
+        } else if (i == R.id.mBtnCancel) {
+            mConfirmPhoneDialog.dismiss();
         }
     }
 

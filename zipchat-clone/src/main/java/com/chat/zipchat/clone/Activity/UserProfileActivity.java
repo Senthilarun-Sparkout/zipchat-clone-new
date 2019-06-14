@@ -81,39 +81,30 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
         FavouritePojo favouritePojo = new FavouritePojo();
         favouritePojo.setFavouriteId(toId);
 
-        switch (v.getId()) {
+        int i = v.getId();
+        if (i == R.id.mImgBackProfile) {
+            finish();
+        } else if (i == R.id.mImgContact) {
+            if ("null" != mImage) {
+                Intent mImageIntent = new Intent(this, ZoomActivity.class);
+                mImageIntent.putExtra("Value", 2);
+                mImageIntent.putExtra("URL", mImage);
+                startActivity(mImageIntent);
+            }
+        } else if (i == R.id.mAddFavourite) {
+            App.getmInstance().favouritePojoDao.insertOrReplace(favouritePojo);
+            mAddFavourite.setVisibility(View.GONE);
+            mRemoveFavourite.setVisibility(View.VISIBLE);
 
-            case R.id.mImgBackProfile:
-                finish();
-                break;
+            myToast(this, getResources().getString(R.string.added_to_favourites));
+        } else if (i == R.id.mRemoveFavourite) {
+            final DeleteQuery<FavouritePojo> tableDeleteQuery = App.getmInstance().favouritePojoDao.queryBuilder().where(FavouritePojoDao.Properties.FavouriteId.eq(toId)).buildDelete();
+            tableDeleteQuery.executeDeleteWithoutDetachingEntities();
 
-            case R.id.mImgContact:
-                if ("null" != mImage) {
-                    Intent mImageIntent = new Intent(this, ZoomActivity.class);
-                    mImageIntent.putExtra("Value", 2);
-                    mImageIntent.putExtra("URL", mImage);
-                    startActivity(mImageIntent);
-                }
-                break;
+            mAddFavourite.setVisibility(View.VISIBLE);
+            mRemoveFavourite.setVisibility(View.GONE);
 
-            case R.id.mAddFavourite:
-                App.getmInstance().favouritePojoDao.insertOrReplace(favouritePojo);
-                mAddFavourite.setVisibility(View.GONE);
-                mRemoveFavourite.setVisibility(View.VISIBLE);
-
-                myToast(this, getResources().getString(R.string.added_to_favourites));
-                break;
-
-            case R.id.mRemoveFavourite:
-
-                final DeleteQuery<FavouritePojo> tableDeleteQuery = App.getmInstance().favouritePojoDao.queryBuilder().where(FavouritePojoDao.Properties.FavouriteId.eq(toId)).buildDelete();
-                tableDeleteQuery.executeDeleteWithoutDetachingEntities();
-
-                mAddFavourite.setVisibility(View.VISIBLE);
-                mRemoveFavourite.setVisibility(View.GONE);
-
-                myToast(this, getResources().getString(R.string.remove_from_favourite));
-                break;
+            myToast(this, getResources().getString(R.string.remove_from_favourite));
         }
 
     }

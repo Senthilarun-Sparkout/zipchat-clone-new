@@ -166,70 +166,247 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         public void afterTextChanged(Editable editable) {
 
             String text = editable.toString();
-            switch (view.getId()) {
-                case R.id.mEtCodeF:
-                    if (text.length() == 1) {
-                        mEtCodeS.requestFocus();
-                        break;
-                    } else if (text.length() == 0) {
-                        mEtCodeF.requestFocus();
-                        break;
-                    }
-                case R.id.mEtCodeS:
-                    if (text.length() == 1) {
-                        mEtCodeT.requestFocus();
-                        break;
-                    } else if (text.length() == 0) {
-                        mEtCodeS.requestFocus();
-                        break;
-                    }
-                case R.id.mEtCodeT:
-                    if (text.length() == 1) {
-                        mEtCodeFo.requestFocus();
-                        break;
-                    } else if (text.length() == 0) {
-                        mEtCodeT.requestFocus();
-                        break;
-                    }
-                case R.id.mEtCodeFo:
-                    if (text.length() == 1) {
-                        mEtCodeFi.requestFocus();
-                        break;
-                    } else if (text.length() == 0) {
-                        mEtCodeFo.requestFocus();
-                        break;
-                    }
-                case R.id.mEtCodeFi:
-                    if (text.length() == 1) {
-                        mEtCodeSix.requestFocus();
-                        break;
-                    } else if (text.length() == 0) {
-                        mEtCodeFi.requestFocus();
-                        break;
-                    }
-                case R.id.mEtCodeSix:
-                    if (text.length() == 0) {
-                        mEtCodeSix.requestFocus();
-                        break;
-                    } else if (text.length() == 1) {
-                        String digit1 = mEtCodeF.getText().toString();
-                        String digit2 = mEtCodeS.getText().toString();
-                        String digit3 = mEtCodeT.getText().toString();
-                        String digit4 = mEtCodeFo.getText().toString();
-                        String digit5 = mEtCodeFi.getText().toString();
-                        String digit6 = mEtCodeSix.getText().toString();
-                        final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+            int i = view.getId();
+            if (i == R.id.mEtCodeF) {
+                if (text.length() == 1) {
+                    mEtCodeS.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeF.requestFocus();
+                    return;
+                }
 
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                OtpVerifyService(otp_Value);
-                            }
-                        }, 2000);
+                if (text.length() == 1) {
+                    mEtCodeT.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeS.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeT.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeSix.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
 //                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
-                    }
-                    break;
+                }
+            } else if (i == R.id.mEtCodeS) {
+                if (text.length() == 1) {
+                    mEtCodeT.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeS.requestFocus();
+                    return;
+                }
 
+                if (text.length() == 1) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeT.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeSix.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
+//                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
+                }
+            } else if (i == R.id.mEtCodeT) {
+                if (text.length() == 1) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeT.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeSix.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
+//                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
+                }
+            } else if (i == R.id.mEtCodeFo) {
+                if (text.length() == 1) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFo.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 1) {
+                    mEtCodeSix.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
+//                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
+                }
+            } else if (i == R.id.mEtCodeFi) {
+                if (text.length() == 1) {
+                    mEtCodeSix.requestFocus();
+                    return;
+                } else if (text.length() == 0) {
+                    mEtCodeFi.requestFocus();
+                    return;
+                }
+
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
+//                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
+                }
+            } else if (i == R.id.mEtCodeSix) {
+                if (text.length() == 0) {
+                    mEtCodeSix.requestFocus();
+                } else if (text.length() == 1) {
+                    String digit1 = mEtCodeF.getText().toString();
+                    String digit2 = mEtCodeS.getText().toString();
+                    String digit3 = mEtCodeT.getText().toString();
+                    String digit4 = mEtCodeFo.getText().toString();
+                    String digit5 = mEtCodeFi.getText().toString();
+                    String digit6 = mEtCodeSix.getText().toString();
+                    final String otp_Value = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            OtpVerifyService(otp_Value);
+                        }
+                    }, 2000);
+//                        verifyPhoneNumberWithCode(mVerificationId, otp_Value);
+                }
             }
         }
 
@@ -247,21 +424,17 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mtvResendOtp:
-                mLlCounten.setVisibility(View.VISIBLE);
-                mLlResend.setVisibility(View.GONE);
-                counten();
-                if (isOnline(this)) {
+        if (v.getId() == R.id.mtvResendOtp) {
+            mLlCounten.setVisibility(View.VISIBLE);
+            mLlResend.setVisibility(View.GONE);
+            counten();
+            if (isOnline(this)) {
 //                    resendVerificationCode(number, mResendToken);
-                    ResendOtpService();
+                ResendOtpService();
 
-                } else {
-                    snackbar(this, mLlCounten, BaseClass.NO_INTERNET);
-                }
-
-
-                break;
+            } else {
+                snackbar(this, mLlCounten, BaseClass.NO_INTERNET);
+            }
         }
     }
 

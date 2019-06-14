@@ -120,22 +120,19 @@ public class AddMoneyActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mBtnAddMoneyProceed:
-                if (validation()) {
-                    GetStripeToken();
-                }
-                break;
-            case R.id.mTxtAddMoneyCardDetail:
-                if (mLlAddMoneyNewCard.getVisibility() == VISIBLE) {
-                    mLlAddMoneyNewCard.setVisibility(View.GONE);
-                    mTxtAddMoneyCardDetail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_keyboard_arrow_right, 0);
-                } else {
-                    mLlAddMoneyNewCard.setVisibility(View.VISIBLE);
-                    mTxtAddMoneyCardDetail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_keyboard_arrow_down, 0);
-                }
-
-                break;
+        int i = v.getId();
+        if (i == R.id.mBtnAddMoneyProceed) {
+            if (validation()) {
+                GetStripeToken();
+            }
+        } else if (i == R.id.mTxtAddMoneyCardDetail) {
+            if (mLlAddMoneyNewCard.getVisibility() == VISIBLE) {
+                mLlAddMoneyNewCard.setVisibility(View.GONE);
+                mTxtAddMoneyCardDetail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_keyboard_arrow_right, 0);
+            } else {
+                mLlAddMoneyNewCard.setVisibility(VISIBLE);
+                mTxtAddMoneyCardDetail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_keyboard_arrow_down, 0);
+            }
         }
     }
 

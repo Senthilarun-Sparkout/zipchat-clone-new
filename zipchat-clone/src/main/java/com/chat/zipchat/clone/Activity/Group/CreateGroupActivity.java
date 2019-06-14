@@ -115,18 +115,15 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.img_group_icon:
-                imagePicker();
-                break;
-            case R.id.fab_create_group:
-                if (TextUtils.isEmpty(etGroupSubject.getText().toString())) {
-                    myCenterToast(this, getResources().getString(R.string.group_subject_content));
-                } else {
-                    createGroup();
-                }
-                break;
+        int i = v.getId();
+        if (i == R.id.img_group_icon) {
+            imagePicker();
+        } else if (i == R.id.fab_create_group) {
+            if (TextUtils.isEmpty(etGroupSubject.getText().toString())) {
+                myCenterToast(this, getResources().getString(R.string.group_subject_content));
+            } else {
+                createGroup();
+            }
         }
     }
 

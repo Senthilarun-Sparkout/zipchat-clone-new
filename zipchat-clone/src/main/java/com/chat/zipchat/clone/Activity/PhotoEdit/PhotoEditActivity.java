@@ -97,42 +97,34 @@ public class PhotoEditActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-            case R.id.img_photo_edit_back:
-                finish();
-                break;
-            case R.id.img_photo_edit_undo:
-                mPhotoEditor.undo();
-                break;
-            case R.id.img_photo_edit_redo:
-                mPhotoEditor.redo();
-                break;
-            case R.id.img_photo_edit_crop:
-                break;
-            case R.id.img_photo_edit_stickers:
-                ShowBrush(false);
-                mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
-                break;
-            case R.id.img_photo_edit_text:
-                ShowBrush(false);
-                TextEditorDialogFragment textEditorDialogFragment = TextEditorDialogFragment.show(this);
-                textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
-                    @Override
-                    public void onDone(String inputText, int colorCode) {
-                        mPhotoEditor.addText(inputText, colorCode);
-                    }
-                });
-                break;
-            case R.id.img_photo_edit_paint:
-                if (colorPickerView.getVisibility() == View.VISIBLE) {
-                    ShowBrush(false);
-                } else {
-                    ShowBrush(true);
+        int i = v.getId();
+        if (i == R.id.img_photo_edit_back) {
+            finish();
+        } else if (i == R.id.img_photo_edit_undo) {
+            mPhotoEditor.undo();
+        } else if (i == R.id.img_photo_edit_redo) {
+            mPhotoEditor.redo();
+        } else if (i == R.id.img_photo_edit_crop) {
+        } else if (i == R.id.img_photo_edit_stickers) {
+            ShowBrush(false);
+            mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
+        } else if (i == R.id.img_photo_edit_text) {
+            ShowBrush(false);
+            TextEditorDialogFragment textEditorDialogFragment = TextEditorDialogFragment.show(this);
+            textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
+                @Override
+                public void onDone(String inputText, int colorCode) {
+                    mPhotoEditor.addText(inputText, colorCode);
                 }
-                break;
-            case R.id.fab_photo_done:
-                saveImage();
-                break;
+            });
+        } else if (i == R.id.img_photo_edit_paint) {
+            if (colorPickerView.getVisibility() == View.VISIBLE) {
+                ShowBrush(false);
+            } else {
+                ShowBrush(true);
+            }
+        } else if (i == R.id.fab_photo_done) {
+            saveImage();
         }
     }
 

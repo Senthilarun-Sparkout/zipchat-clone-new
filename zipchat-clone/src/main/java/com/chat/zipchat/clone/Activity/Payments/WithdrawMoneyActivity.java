@@ -156,15 +156,13 @@ public class WithdrawMoneyActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mWithdrawUploadProof:
-                imagePicker();
-                break;
-            case R.id.mBtnWithdrawProceed:
-                if (validation()) {
-                    GetUtoXService();
-                }
-                break;
+        int i = v.getId();
+        if (i == R.id.mWithdrawUploadProof) {
+            imagePicker();
+        } else if (i == R.id.mBtnWithdrawProceed) {
+            if (validation()) {
+                GetUtoXService();
+            }
         }
     }
 

@@ -210,17 +210,13 @@ public class GroupInfoActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case android.R.id.home:
-                finish();
-                break;
-            case R.id.item_edit_group:
-                changeGrpSubDialog(1);
-                break;
-            case R.id.item_add_participants:
-                GroupMemberActivityCall();
-                break;
+        int i = item.getItemId();
+        if (i == android.R.id.home) {
+            finish();
+        } else if (i == R.id.item_edit_group) {
+            changeGrpSubDialog(1);
+        } else if (i == R.id.item_add_participants) {
+            GroupMemberActivityCall();
         }
 
         return true;
@@ -229,22 +225,17 @@ public class GroupInfoActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-            case R.id.ll_add_participants:
-                GroupMemberActivityCall();
-                break;
-            case R.id.img_group_name_edit:
-                changeGrpSubDialog(1);
-                break;
-            case R.id.header_group_icon:
-                imagePicker();
-                break;
-            case R.id.tv_add_desc_group_info:
-                changeGrpSubDialog(2);
-                break;
-            case R.id.tv_desc_group_info:
-                changeGrpSubDialog(2);
-                break;
+        int i = v.getId();
+        if (i == R.id.ll_add_participants) {
+            GroupMemberActivityCall();
+        } else if (i == R.id.img_group_name_edit) {
+            changeGrpSubDialog(1);
+        } else if (i == R.id.header_group_icon) {
+            imagePicker();
+        } else if (i == R.id.tv_add_desc_group_info) {
+            changeGrpSubDialog(2);
+        } else if (i == R.id.tv_desc_group_info) {
+            changeGrpSubDialog(2);
         }
     }
 
@@ -511,27 +502,22 @@ public class GroupInfoActivity extends AppCompatActivity implements View.OnClick
 
         DatabaseReference refGroupMember = FirebaseDatabase.getInstance().getReference("groups");
 
-        switch (item.getItemId()) {
-            case R.id.nav_message:
-                myToast(this, item.getTitle().toString());
-                break;
-            case R.id.nav_view:
-                myToast(this, item.getTitle().toString());
-                break;
-            case R.id.nav_make_admin:
-                refGroupMember.child(toId).child("members").child(groupMember.getId()).setValue("1");
-                syncMembersDetails();
-                break;
-            case R.id.nav_dismiss_admin:
-                refGroupMember.child(toId).child("members").child(groupMember.getId()).setValue("0");
-                syncMembersDetails();
-                break;
-            case R.id.nav_remove:
-                refGroupMember.child(toId).child("members").child(groupMember.getId()).removeValue();
-                DatabaseReference refUserMsg = FirebaseDatabase.getInstance().getReference("user-messages");
-                refUserMsg.child(groupMember.getId()).child(toId).removeValue();
-                syncMembersDetails();
-                break;
+        int i = item.getItemId();
+        if (i == R.id.nav_message) {
+            myToast(this, item.getTitle().toString());
+        } else if (i == R.id.nav_view) {
+            myToast(this, item.getTitle().toString());
+        } else if (i == R.id.nav_make_admin) {
+            refGroupMember.child(toId).child("members").child(groupMember.getId()).setValue("1");
+            syncMembersDetails();
+        } else if (i == R.id.nav_dismiss_admin) {
+            refGroupMember.child(toId).child("members").child(groupMember.getId()).setValue("0");
+            syncMembersDetails();
+        } else if (i == R.id.nav_remove) {
+            refGroupMember.child(toId).child("members").child(groupMember.getId()).removeValue();
+            DatabaseReference refUserMsg = FirebaseDatabase.getInstance().getReference("user-messages");
+            refUserMsg.child(groupMember.getId()).child(toId).removeValue();
+            syncMembersDetails();
         }
     }
 

@@ -173,43 +173,35 @@ public class SendMoneyActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case android.R.id.home:
-                this.finish();
-                break;
-            case R.id.mToolScanner:
-                Scanning(this);
-                break;
+        int i = item.getItemId();
+        if (i == android.R.id.home) {
+            this.finish();
+        } else if (i == R.id.mToolScanner) {
+            Scanning(this);
         }
         return true;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mBtnSendProceed:
-                if (validation()) {
-                    showSimpleProgressDialog(this);
-                    float Amount = Float.valueOf(mAmountSendMoney.getText().toString());
-                    GetUtoXService(Amount, 2);
-                }
-                break;
-            case R.id.mTxtAddMoney:
-                Intent IntentAddMoney = new Intent(this, AddMoneyActivity.class);
-                startActivity(IntentAddMoney);
-                finish();
-                break;
-            case R.id.mTxtWithdraw:
-                Intent IntentWithdraw = new Intent(this, WithdrawMoneyActivity.class);
-                startActivity(IntentWithdraw);
-                finish();
-                break;
-
-            case R.id.mNumberSendMoney:
-                Intent mIntentNumber = new Intent(this, SendXLMActivity.class);
-                startActivityForResult(mIntentNumber, GET_MOBILE_REQUEST_CODE);
-                break;
+        int i = v.getId();
+        if (i == R.id.mBtnSendProceed) {
+            if (validation()) {
+                showSimpleProgressDialog(this);
+                float Amount = Float.valueOf(mAmountSendMoney.getText().toString());
+                GetUtoXService(Amount, 2);
+            }
+        } else if (i == R.id.mTxtAddMoney) {
+            Intent IntentAddMoney = new Intent(this, AddMoneyActivity.class);
+            startActivity(IntentAddMoney);
+            finish();
+        } else if (i == R.id.mTxtWithdraw) {
+            Intent IntentWithdraw = new Intent(this, WithdrawMoneyActivity.class);
+            startActivity(IntentWithdraw);
+            finish();
+        } else if (i == R.id.mNumberSendMoney) {
+            Intent mIntentNumber = new Intent(this, SendXLMActivity.class);
+            startActivityForResult(mIntentNumber, GET_MOBILE_REQUEST_CODE);
         }
     }
 

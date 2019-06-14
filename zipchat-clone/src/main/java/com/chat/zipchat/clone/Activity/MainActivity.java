@@ -155,31 +155,24 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         item.setChecked(true);
 
-        switch (id) {
-            case R.id.nav_chats:
-                mToolbarTitle.setText(getResources().getText(R.string.chats));
-                addFragment(new HomeFragment());
-                break;
-            case R.id.nav_contacts:
-                mToolbarTitle.setText(getResources().getText(R.string.contacts));
-                addFragment(new ContactsFragment(this));
-                break;
-            case R.id.nav_profile:
-                mToolbarTitle.setText(getResources().getText(R.string.profile));
-                addFragment(new ProfileFragment(this));
-                break;
-            case R.id.nav_settings:
-                mToolbarTitle.setText(getResources().getText(R.string.settings));
-                addFragment(new SettingsFragment(this));
-                break;
-            case R.id.nav_payments:
-                mToolbarTitle.setText(getResources().getText(R.string.payments));
-                addFragment(new PaymentFragment(this));
-                break;
-            case R.id.nav_invite_friend:
-                Invitefriend(this);
-            case R.id.nav_help:
-                break;
+        if (id == R.id.nav_chats) {
+            mToolbarTitle.setText(getResources().getText(R.string.chats));
+            addFragment(new HomeFragment());
+        } else if (id == R.id.nav_contacts) {
+            mToolbarTitle.setText(getResources().getText(R.string.contacts));
+            addFragment(new ContactsFragment(this));
+        } else if (id == R.id.nav_profile) {
+            mToolbarTitle.setText(getResources().getText(R.string.profile));
+            addFragment(new ProfileFragment(this));
+        } else if (id == R.id.nav_settings) {
+            mToolbarTitle.setText(getResources().getText(R.string.settings));
+            addFragment(new SettingsFragment(this));
+        } else if (id == R.id.nav_payments) {
+            mToolbarTitle.setText(getResources().getText(R.string.payments));
+            addFragment(new PaymentFragment(this));
+        } else if (id == R.id.nav_invite_friend) {
+            Invitefriend(this);
+        } else if (id == R.id.nav_help) {
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -225,16 +218,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.mImgUser:
-                mToolbarTitle.setText(getResources().getText(R.string.profile));
-                addFragment(new ProfileFragment(this));
-                drawer.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.img_create_group:
-                startActivity(new Intent(this, SelectGroupMemberActivity.class).putExtra("isFromMain", true));
-                break;
+        int i = v.getId();
+        if (i == R.id.mImgUser) {
+            mToolbarTitle.setText(getResources().getText(R.string.profile));
+            addFragment(new ProfileFragment(this));
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (i == R.id.img_create_group) {
+            startActivity(new Intent(this, SelectGroupMemberActivity.class).putExtra("isFromMain", true));
         }
     }
 
