@@ -31,15 +31,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        /*debug {
+        debug {
             buildConfigField 'String', "BaseUrl", baseurl
             buildConfigField 'String', "PaymentUrl", paymenturl
-        }*/
+        }
         release {
-           /* buildConfigField 'String', "BaseUrl", baseurl
-            buildConfigField 'String', "PaymentUrl", paymenturl*/
+            buildConfigField 'String', "BaseUrl", baseurl
+            buildConfigField 'String', "PaymentUrl", paymenturl
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        dexOptions {
+            matchingFallbacks = ['release', 'debug']
         }
     }
     repositories {
