@@ -1,1 +1,1 @@
-include ':zipchat-clone', ':app'
+include ':zipchat-clone'
