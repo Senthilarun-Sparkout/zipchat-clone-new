@@ -42,7 +42,7 @@ import com.chat.zipchat.clone.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.reflect.TypeToken;
-import com.sinch.gson.Gson;
+//import com.sinch.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,14 +103,14 @@ public class MainActivity extends AppCompatActivity
         App.getmInstance().startSinch(this, sharedPreferences(this).getString(KEY_USERNAME, null));
 
         if (null != getIntent().getStringExtra("push_data")) {
-            String strPushData = getIntent().getStringExtra("push_data");
+           /* String strPushData = getIntent().getStringExtra("push_data");
             Map<String, String> mapPushData = new Gson().fromJson(strPushData, new TypeToken<Map<String, String>>() {
             }.getType());
             try {
                 App.getmInstance().sinchClient.relayRemotePushNotificationPayload(mapPushData);
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);

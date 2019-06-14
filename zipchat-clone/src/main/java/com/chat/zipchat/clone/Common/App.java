@@ -23,7 +23,7 @@ import com.chat.zipchat.clone.Model.LocalDataPojoDao;
 import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.crashlytics.android.Crashlytics;
 import com.firebase.client.Firebase;
-import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseApp;/*
 import com.sinch.android.rtc.ClientRegistration;
 import com.sinch.android.rtc.Sinch;
 import com.sinch.android.rtc.SinchClient;
@@ -32,7 +32,7 @@ import com.sinch.android.rtc.SinchError;
 import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.calling.CallClient;
 import com.sinch.android.rtc.calling.CallClientListener;
-import com.sinch.android.rtc.video.VideoScalingType;
+import com.sinch.android.rtc.video.VideoScalingType;*/
 
 import io.fabric.sdk.android.Fabric;
 
@@ -62,7 +62,7 @@ public class App extends Application {
     private static final String APP_KEY = "a8cdc0e3-bdd3-44a8-8294-3d6b709668bc";
     private static final String APP_SECRET = "0nUyaX6Y5Em07WpMOmJwsQ==";
     private static final String ENVIRONMENT = "sandbox.sinch.com";
-    public SinchClient sinchClient = null;
+//    public SinchClient sinchClient = null;
 
     @Override
     public void onCreate() {
@@ -94,7 +94,7 @@ public class App extends Application {
         StrictMode.setThreadPolicy(policy);
     }
 
-    private static class MySinchClientListener implements SinchClientListener {
+   /* private static class MySinchClientListener implements SinchClientListener {
 
         @Override
         public void onClientStarted(SinchClient sinchClient) {
@@ -119,7 +119,7 @@ public class App extends Application {
         public void onLogMessage(int i, String s, String s1) {
 
         }
-    }
+    }*/
 
     public static App getmInstance() {
         return mInstance;
@@ -132,7 +132,7 @@ public class App extends Application {
     }
 
     public void startSinch(Context mContext, String strUsername) {
-        android.content.Context context = mContext.getApplicationContext();
+       /* android.content.Context context = mContext.getApplicationContext();
         sinchClient = Sinch.getSinchClientBuilder().context(context)
                 .applicationKey(APP_KEY)
                 .applicationSecret(APP_SECRET)
@@ -148,10 +148,10 @@ public class App extends Application {
         sinchClient.getCallClient().addCallClientListener(new SinchCallClientListener(mContext));
         sinchClient.getVideoController().setResizeBehaviour(VideoScalingType.ASPECT_FILL);
         sinchClient.setPushNotificationDisplayName(strUsername);
-        sinchClient.start();
+        sinchClient.start();*/
     }
 
-    private static class SinchCallClientListener implements CallClientListener {
+   /* private static class SinchCallClientListener implements CallClientListener {
         Context mContext;
 
         public SinchCallClientListener(Context mContext) {
@@ -170,6 +170,6 @@ public class App extends Application {
                         .putExtra("call_id", call.getCallId()));
             }
         }
-    }
+    }*/
 
 }

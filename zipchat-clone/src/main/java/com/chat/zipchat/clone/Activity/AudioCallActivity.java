@@ -14,11 +14,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
-import com.chat.zipchat.clone.R;
+import com.chat.zipchat.clone.R;/*
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.calling.Call;
-import com.sinch.android.rtc.calling.CallListener;
+import com.sinch.android.rtc.calling.CallListener;*/
 
 import java.util.List;
 import java.util.Locale;
@@ -32,7 +32,7 @@ import static com.chat.zipchat.clone.Common.BaseClass.playProgressTone;
 import static com.chat.zipchat.clone.Common.BaseClass.stopProgressTone;
 
 public class AudioCallActivity extends AppCompatActivity {
-    private TextView tvCallState, tvCallDuration, tvCallerName;
+   /* private TextView tvCallState, tvCallDuration, tvCallerName;
     private Call call;
     private AppCompatImageView ivCallMute;
     private AppCompatImageView ivCallUnmute;
@@ -336,5 +336,5 @@ public class AudioCallActivity extends AppCompatActivity {
             mTimer.cancel();
 
         mCallStart = 0;
-    }
+    }*/
 }

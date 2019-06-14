@@ -644,19 +644,19 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             intent.putExtra("toId", toId);
             startActivity(intent);
         } else if (i == R.id.iv_call) {
-            if (App.getmInstance().sinchClient != null) {
+          /*  if (App.getmInstance().sinchClient != null) {
                 com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUser(toId);
                 String strCallId = call.getCallId();
                 startActivity(new Intent(GroupChatActivity.this, AudioCallActivity.class)
                         .putExtra("call_id", strCallId));
-            }
+            }*/
         } else if (i == R.id.iv_video_call) {
-            if (App.getmInstance().sinchClient != null) {
+           /* if (App.getmInstance().sinchClient != null) {
                 com.sinch.android.rtc.calling.Call call = App.getmInstance().sinchClient.getCallClient().callUserVideo(toId);
                 String strCallId = call.getCallId();
                 startActivity(new Intent(GroupChatActivity.this, VideoCallActivity.class)
                         .putExtra("call_id", strCallId));
-            }
+            }*/
         } else if (i == R.id.mImgBtnGif) {
             mProgressGifStrikers.setVisibility(View.VISIBLE);
             mRvGif.setVisibility(View.GONE);

@@ -16,11 +16,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
-import com.chat.zipchat.clone.R;
+import com.chat.zipchat.clone.R;/*
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.calling.Call;
-import com.sinch.android.rtc.calling.CallListener;
+import com.sinch.android.rtc.calling.CallListener;*/
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import static com.chat.zipchat.clone.Common.BaseClass.customNotification;
 import static com.chat.zipchat.clone.Common.BaseClass.myToast;
 
 public class AudioIncomingCallActivity extends AppCompatActivity {
-    private MediaPlayer player;
+   /* private MediaPlayer player;
     private TextView tvCallState;
     private TextView tvCallerName;
     private Call call;
@@ -148,5 +148,5 @@ public class AudioIncomingCallActivity extends AppCompatActivity {
         super.onStop();
         if (player != null)
             player.stop();
-    }
+    }*/
 }

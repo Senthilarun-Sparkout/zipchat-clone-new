@@ -15,11 +15,11 @@ import com.chat.zipchat.clone.Activity.MainActivity;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+import com.google.firebase.messaging.RemoteMessage;/*
 import com.sinch.android.rtc.NotificationResult;
 import com.sinch.android.rtc.SinchHelpers;
 import com.sinch.android.rtc.calling.CallNotificationResult;
-import com.sinch.gson.Gson;
+import com.sinch.gson.Gson;*/
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ public class MyMessagingService extends FirebaseMessagingService {
         String message = "";
         Intent intent = null;
 
-        if (SinchHelpers.isSinchPushPayload(remoteMessage.getData())) {
+       /* if (SinchHelpers.isSinchPushPayload(remoteMessage.getData())) {
             try {
                 Intent mIntent = new Intent(this, MainActivity.class);
                 mIntent.setAction(Intent.ACTION_MAIN);
@@ -66,7 +66,7 @@ public class MyMessagingService extends FirebaseMessagingService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
+        } else */{
             message = remoteMessage.getData().get("message");
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("type", remoteMessage.getData().get("type"));

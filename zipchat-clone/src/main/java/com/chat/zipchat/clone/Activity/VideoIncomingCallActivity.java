@@ -15,12 +15,12 @@ import android.widget.TextView;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
-import com.chat.zipchat.clone.R;
+import com.chat.zipchat.clone.R;/*
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.video.VideoCallListener;
-import com.sinch.android.rtc.video.VideoController;
+import com.sinch.android.rtc.video.VideoController;*/
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import static com.chat.zipchat.clone.Common.BaseClass.customNotification;
 import static com.chat.zipchat.clone.Common.BaseClass.myToast;
 
 public class VideoIncomingCallActivity extends AppCompatActivity {
-    private String callId;
+    /*private String callId;
     private Call call;
     private MediaPlayer player;
     private TextView tvCallDuration;
@@ -172,5 +172,5 @@ public class VideoIncomingCallActivity extends AppCompatActivity {
         if (vc != null) {
             localView.removeView(vc.getLocalView());
         }
-    }
+    }*/
 }
