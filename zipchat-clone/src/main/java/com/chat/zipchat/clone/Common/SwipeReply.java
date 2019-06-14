@@ -91,14 +91,17 @@ public class SwipeReply extends ItemTouchHelper.Callback {
 
 
     private void setTouchListener(RecyclerView recyclerView, final RecyclerView.ViewHolder viewHolder) {
-        recyclerView.setOnTouchListener((__, event) -> {
-            swipeBack = event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP;
-            if (swipeBack) {
-                if (Math.abs(mView.getTranslationX()) >= this.convertTodp(100)) {
-                    swipeControllerActions.showReplyUI(viewHolder.getAdapterPosition());
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View __, MotionEvent event) {
+                swipeBack = event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP;
+                if (swipeBack) {
+                    if (Math.abs(mView.getTranslationX()) >= SwipeReply.this.convertTodp(100)) {
+                        swipeControllerActions.showReplyUI(viewHolder.getAdapterPosition());
+                    }
                 }
+                return false;
             }
-            return false;
         });
     }
 

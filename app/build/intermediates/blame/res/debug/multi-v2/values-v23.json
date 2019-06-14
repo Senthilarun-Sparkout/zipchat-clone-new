@@ -4,6 +4,25 @@
             "outputFile": "E:\\Gksarun\\Project\\WhatsApp\\ZipchatClone\\zipchat_sdk\\zipchat-clone-new\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\Karthik P.V\\.gradle\\caches\\transforms-2\\files-2.1\\5fc364109ea6d2ef4b1170fa93a8a91d\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "2646",
+                        "endLines": "39",
+                        "endColumns": "12",
+                        "endOffsets": "2791"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Karthik P.V\\.gradle\\caches\\transforms-2\\files-2.1\\14b64de7ced1d6e13fa7a0a98dbb03d2\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",

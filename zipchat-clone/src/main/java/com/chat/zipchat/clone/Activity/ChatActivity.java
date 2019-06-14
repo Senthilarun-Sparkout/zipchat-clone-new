@@ -87,6 +87,7 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -937,7 +938,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
             referenceUser.child(toId).child(mGroupId).setValue("1");
             referenceUserInsert = FirebaseDatabase.getInstance().getReference("user-messages").child(toId).child(UserId(this));
-            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(aVoid -> updateFriendList());
+            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    ChatActivity.this.updateFriendList();
+                }
+            });
 
             SendNotification();
 
@@ -1171,7 +1177,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-                CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                final CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 try {
                     Glide.with(ChatActivity.this)
                             .load(result.getUri())
@@ -1216,7 +1222,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                     referenceMessageInsert.child(mGroupId).setValue(chatPojo);
                     referenceUser.child(toId).child(mGroupId).setValue("1");
                     referenceUserInsert = FirebaseDatabase.getInstance().getReference("user-messages").child(toId).child(UserId(ChatActivity.this));
-                    referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(aVoid -> updateFriendList());;
+                    referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            ChatActivity.this.updateFriendList();
+                        }
+                    });;
 
                     SendNotification();
                 }
@@ -1290,7 +1301,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (isOnline(ChatActivity.this)) {
                     referenceMessageInsert.child(mGroupId).setValue(map);
-                    referenceUser.child(toId).child(mGroupId).setValue("1").addOnSuccessListener(aVoid -> updateFriendList());;
+                    referenceUser.child(toId).child(mGroupId).setValue("1").addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            ChatActivity.this.updateFriendList();
+                        }
+                    });;
 
                 }
 
@@ -1323,7 +1339,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("media", file.getName(), requestBody);
 
             final Call<ProfileImageResponse> registerResponseCall = apiInterface.updateProfileImage(fileToUpload);
-            String finalType = type;
+            final String finalType = type;
             registerResponseCall.enqueue(new Callback<ProfileImageResponse>() {
                 @Override
                 public void onResponse(Call<ProfileImageResponse> call, Response<ProfileImageResponse> response) {
@@ -1348,7 +1364,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                             referenceMessageInsert.child(mGroupId).setValue(map);
                             referenceUser.child(toId).child(mGroupId).setValue("1");
                             referenceUserInsert = FirebaseDatabase.getInstance().getReference("user-messages").child(toId).child(UserId(ChatActivity.this));
-                            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(aVoid -> updateFriendList());;
+                            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    updateFriendList();
+                                }
+                            });;
 
                             SendNotification();
                         }
@@ -1830,7 +1851,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             referenceMessageInsert.child(mGroupId).setValue(map);
             referenceUser.child(toId).child(mGroupId).setValue("1");
             referenceUserInsert = FirebaseDatabase.getInstance().getReference("user-messages").child(toId).child(UserId(ChatActivity.this));
-            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(aVoid -> updateFriendList());;
+            referenceUserInsert.child(mGroupId).setValue("1").addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    ChatActivity.this.updateFriendList();
+                }
+            });;
 
             SendNotification();
         }

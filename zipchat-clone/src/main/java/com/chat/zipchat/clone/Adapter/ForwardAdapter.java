@@ -55,7 +55,7 @@ public class ForwardAdapter extends RecyclerView.Adapter<ForwardAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-        ChatListPojo chatListPojo = chatAdapterFilterList.get(i);
+        final ChatListPojo chatListPojo = chatAdapterFilterList.get(i);
 
         if (chatListPojo.getIsGroup()) {
 

@@ -265,14 +265,14 @@ public class GroupInfoActivity extends AppCompatActivity implements View.OnClick
      *
      * @param value - 1 (group_name) or 2 (group_description)
      */
-    private void changeGrpSubDialog(int value) {
+    private void changeGrpSubDialog(final int value) {
         changeGrpSubDialog = new Dialog(this, R.style.DialogThemeforview_pop);
         changeGrpSubDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         changeGrpSubDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         changeGrpSubDialog.setContentView(R.layout.dialog_change_group_subject);
         changeGrpSubDialog.show();
 
-        EditText etDialogGroupSubject = changeGrpSubDialog.findViewById(R.id.et_dialog_group_subject);
+        final EditText etDialogGroupSubject = changeGrpSubDialog.findViewById(R.id.et_dialog_group_subject);
         TextView tvDialogGroupDesc = changeGrpSubDialog.findViewById(R.id.tv_dialog_group_desc);
         TextView tvGroupDialogTitle = changeGrpSubDialog.findViewById(R.id.tv_group_dialog_title);
         AppCompatButton btnGroupDialogCancel = changeGrpSubDialog.findViewById(R.id.btn_group_dialog_cancel);
@@ -392,7 +392,7 @@ public class GroupInfoActivity extends AppCompatActivity implements View.OnClick
                         .buildDelete();
                 tableDeleteQuery.executeDeleteWithoutDetachingEntities();
 
-                for (DataSnapshot datas : dataSnapshot.getChildren()) {
+                for (final DataSnapshot datas : dataSnapshot.getChildren()) {
 
                     DatabaseReference referenceGroupMenbers = FirebaseDatabase.getInstance().getReference("user-details").child(datas.getKey()).child("profile-details");
                     referenceGroupMenbers.addValueEventListener(new ValueEventListener() {

@@ -37,7 +37,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         Glide.with(mContext).load(arrayList.get(i).getImages().getOriginal().getUrl()).error(R.drawable.thumbnail_photo).into(viewHolder.mGifImage);
 

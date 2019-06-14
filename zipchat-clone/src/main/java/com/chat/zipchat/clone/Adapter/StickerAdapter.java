@@ -37,7 +37,7 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Glide.with(mContext).load(arrayList.get(i).getStickers())
                 .into(viewHolder.mStickerImage);
 

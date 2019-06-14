@@ -134,7 +134,7 @@ public class ChatFragment extends Fragment {
                             }
                         });
 
-                        Groups groups = new Groups();
+                        final Groups groups = new Groups();
                         groups.setGroup_id(ds.getKey());
                         App.getmInstance().groupsDao.insertOrReplace(groups);
 
@@ -148,7 +148,7 @@ public class ChatFragment extends Fragment {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                for (DataSnapshot datas : dataSnapshot.getChildren()) {
+                                for (final DataSnapshot datas : dataSnapshot.getChildren()) {
 
                                     DatabaseReference referenceGroupMenbers = FirebaseDatabase.getInstance().getReference("user-details").child(datas.getKey()).child("profile-details");
                                     referenceGroupMenbers.addValueEventListener(new ValueEventListener() {

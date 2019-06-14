@@ -116,9 +116,9 @@ public class MessageInfoActivity extends AppCompatActivity {
             }
         }
 
-        ImageView imgGroupInfoBackground = findViewById(R.id.img_group_info_background);
+        final ImageView imgGroupInfoBackground = findViewById(R.id.img_group_info_background);
 
-        CollapsingToolbarLayout collapsingMessageInfo = findViewById(R.id.collapsing_message_info);
+        final CollapsingToolbarLayout collapsingMessageInfo = findViewById(R.id.collapsing_message_info);
         collapsingMessageInfo.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {

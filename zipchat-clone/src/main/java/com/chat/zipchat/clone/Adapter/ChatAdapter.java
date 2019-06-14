@@ -706,7 +706,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 String friendName = "friend";
 
                 ChatDescItem chatDescItem = (ChatDescItem) viewHolder;
-                ChatPojo chatPojo = chatPojoArrayList.get(position);
+                final ChatPojo chatPojo = chatPojoArrayList.get(position);
 
                 if (chatPojoArrayList.get(position).getFromId().equalsIgnoreCase(UserId(mContext))) {
 

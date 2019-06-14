@@ -44,9 +44,9 @@ public class GroupMembersAdapter extends RecyclerView.Adapter<GroupMembersAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
 
-        GroupMember groupMember = groupMemberList.get(position);
+        final GroupMember groupMember = groupMemberList.get(position);
 
         if (groupMember.getIsAdmin().equals("1")) {
             viewHolder.tvGrpAdmin.setVisibility(View.VISIBLE);
@@ -105,7 +105,7 @@ public class GroupMembersAdapter extends RecyclerView.Adapter<GroupMembersAdapte
         }
     }
 
-    private void popupMenu(RelativeLayout rlGroupMembers, GroupMember groupMember) {
+    private void popupMenu(RelativeLayout rlGroupMembers, final GroupMember groupMember) {
         PopupMenu popup = new PopupMenu(mContext, rlGroupMembers, Gravity.CENTER);
         popup.getMenuInflater().inflate(R.menu.group_member_popup, popup.getMenu());
 

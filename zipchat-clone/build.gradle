@@ -42,20 +42,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    repositories {
+   /* repositories {
         flatDir {
             dirs 'libs'
         }
-    }
+    }*/
     lintOptions {
         abortOnError false
     }
+}
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-
-    }
+greendao {
+    targetGenDir 'src/main/java'
 }
 
 dependencies {
@@ -109,10 +107,12 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     implementation 'com.stripe:stripe-android:6.1.2'
 
-    /**Sinch*/
-    implementation(name: 'sinch-android-rtc', version: '+', ext: 'aar')
+  /*  *//**Sinch*//*
+    implementation(name: 'sinch-android-rtc', version: '+', ext: 'aar')*/
 
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'ja.burhanrashid52:photoeditor:0.3.3'
+
+    implementation project(path: ':sinch-android-rtc-3.13.0')
 
 }

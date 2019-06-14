@@ -9,13 +9,59 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="28" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
     <application
+        android:name="com.chat.zipchat.clone.Common.App"
         android:allowBackup="false"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/NoActionBarTheme" >
         <activity
             android:name="com.gks.mylibrary.MainActivity"
@@ -26,6 +72,265 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.chat.zipchat.clone.Activity.ForwardActivity" />
+        <activity android:name="com.chat.zipchat.clone.Activity.Group.MessageInfoActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAwi5mHIaHg9nEkMS2CnFo6dBv4Ty7Rgq8" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.SplashActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.chat.zipchat.clone.Common.OnClearFromRecentService"
+            android:stopWithTask="false" />
+        <service android:name="com.chat.zipchat.clone.Fcm.MyMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.chat.zipchat.clone.Common.MyBroadCastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.SigninActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.OtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.VerifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.ChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.UserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.ZoomActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.ExoPlayerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.MediaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.SendMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.ReceiveMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.WithdrawMoneyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.AddMoneyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.TransHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Payments.SendXLMActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.VideoCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.VideoIncomingCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.AudioIncomingCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.AudioCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.ShareLocationActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e8e4bd538b24b05205288a6fec2466a09bb5a427" />
+
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.PhotoEdit.PhotoEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Group.SelectGroupMemberActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Group.CreateGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Group.GroupChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.chat.zipchat.clone.Activity.Group.GroupInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.stripe.android.view.AddSourceActivity"
+            android:theme="@style/StripeDefaultTheme"
+            android:windowSoftInputMode="stateVisible" >
+        </activity>
+        <activity
+            android:name="com.stripe.android.view.PaymentMethodsActivity"
+            android:theme="@style/StripeDefaultTheme" >
+        </activity>
+        <activity
+            android:name="com.stripe.android.view.PaymentFlowActivity"
+            android:theme="@style/StripeDefaultTheme" >
+        </activity>
+        <activity
+            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <!--
+             FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.chat.zipchat.clone.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <provider
+            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+            android:authorities="com.chat.zipchat.clone.crashlyticsinitprovider"
+            android:exported="false"
+            android:initOrder="90" />
+
+        <service android:name="com.sinch.android.rtc.internal.client.fcm.InstanceIDTokenService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

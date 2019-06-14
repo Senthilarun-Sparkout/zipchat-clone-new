@@ -12,6 +12,24 @@
                         "endLines": "6",
                         "endColumns": "13",
                         "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1003",
+                        "endLines": "24",
+                        "endColumns": "13",
+                        "endOffsets": "1275"
+                    }
+                },
+                {
+                    "source": "E:\\Gksarun\\Project\\WhatsApp\\ZipchatClone\\zipchat_sdk\\zipchat-clone-new\\zipchat-clone\\build\\intermediates\\packaged_res\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,103,154,203,247,301,353,401,454,500,561,614,671,726,783,839,894,951",
+                        "endColumns": "47,50,48,43,53,51,47,52,45,60,52,56,54,56,55,54,56,51",
+                        "endOffsets": "98,149,198,242,296,348,396,449,495,556,609,666,721,778,834,889,946,998"
                     }
                 }
             ]

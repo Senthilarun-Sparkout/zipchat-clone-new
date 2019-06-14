@@ -444,7 +444,12 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        SwipeReply messageSwipeController = new SwipeReply(this, position -> Log.e("Arun", "showReplyUI: " + position));
+        SwipeReply messageSwipeController = new SwipeReply(this, new SwipeReply.SwipeControllerActions() {
+            @Override
+            public void showReplyUI(int position) {
+                Log.e("Arun", "showReplyUI: " + position);
+            }
+        });
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(messageSwipeController);
         itemTouchHelper.attachToRecyclerView(mRvChat);
@@ -1086,7 +1091,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
                 }
 
             } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-                CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                final CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 try {
                     Glide.with(GroupChatActivity.this)
                             .load(result.getUri())
@@ -1237,7 +1242,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("media", file.getName(), requestBody);
 
             final Call<ProfileImageResponse> registerResponseCall = apiInterface.updateProfileImage(fileToUpload);
-            String finalType = type;
+            final String finalType = type;
             registerResponseCall.enqueue(new Callback<ProfileImageResponse>() {
                 @Override
                 public void onResponse(Call<ProfileImageResponse> call, Response<ProfileImageResponse> response) {

@@ -1,1 +1,1 @@
-include ':zipchat-clone', ':app'
+include ':zipchat-clone', ':app', ':sinch-android-rtc-3.13.0'
