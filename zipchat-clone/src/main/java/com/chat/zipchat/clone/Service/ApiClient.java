@@ -13,9 +13,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
+
+    private static String BaseUrl="http://138.197.64.126:8080/";
+    private static String PaymentUrl="http://138.197.64.126:4000/";
+
     private static Retrofit retrofit;
-    private static String API_BASE_URL = BuildConfig.BaseUrl + "api/v1/";
-    private static String PAYMENT_URL = BuildConfig.PaymentUrl;
+    private static String API_BASE_URL = BaseUrl + "api/v1/";
+    private static String PAYMENT_URL = PaymentUrl;
     private static String CONVERT_AMOUNT_URL = "https://min-api.cryptocompare.com/data/";
     private static String GIF_URL = "http://api.giphy.com/v1/gifs/";
 
@@ -107,7 +111,7 @@ public class ApiClient {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BuildConfig.BaseUrl)
+                .baseUrl(BaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
