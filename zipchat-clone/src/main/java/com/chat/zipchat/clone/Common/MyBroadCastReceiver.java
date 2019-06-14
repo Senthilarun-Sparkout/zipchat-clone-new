@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
-import com.chat.zipchat.clone.Model.Chat.ChatPojoDao;
+import com.chat.zipchat.clone.Model.ChatPojo;
+import com.chat.zipchat.clone.Model.ChatPojoDao;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

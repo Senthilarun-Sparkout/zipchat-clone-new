@@ -17,9 +17,9 @@ import android.widget.ImageView;
 
 import com.chat.zipchat.clone.Adapter.ForwardAdapter;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
-import com.chat.zipchat.clone.Model.ChatList.ChatListPojo;
-import com.chat.zipchat.clone.Model.ChatList.ChatListPojoDao;
+import com.chat.zipchat.clone.Model.ChatListPojoDao;
+import com.chat.zipchat.clone.Model.ChatPojo;
+import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

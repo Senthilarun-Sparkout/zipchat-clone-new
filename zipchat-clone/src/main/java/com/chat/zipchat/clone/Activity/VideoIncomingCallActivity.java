@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;

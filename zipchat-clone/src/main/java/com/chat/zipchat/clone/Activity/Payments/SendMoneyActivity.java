@@ -19,9 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
+import com.chat.zipchat.clone.Model.ChatPojo;
 import com.chat.zipchat.clone.Model.Payments.GetAmountPojo;
-import com.chat.zipchat.clone.Model.GetMobileNumber.GetMobileNumberResponse;
+import com.chat.zipchat.clone.Model.GetMobileNumbers.GetMobileNumberResponse;
 import com.chat.zipchat.clone.Model.Payments.GetUtoXPojo;
 import com.chat.zipchat.clone.Model.Payments.GetXtoUPojo;
 import com.chat.zipchat.clone.Model.SendAmount.SendAmountRequest;

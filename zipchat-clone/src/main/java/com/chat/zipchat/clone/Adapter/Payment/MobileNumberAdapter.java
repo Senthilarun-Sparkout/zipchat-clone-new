@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.chat.zipchat.clone.Activity.Payments.SendXLMActivity;
-import com.chat.zipchat.clone.Model.GetMobileNumber.GetMobileNumberResponse;
+import com.chat.zipchat.clone.Model.GetMobileNumbers.GetMobileNumberResponse;
 import com.chat.zipchat.clone.R;
 
 import java.util.HashMap;

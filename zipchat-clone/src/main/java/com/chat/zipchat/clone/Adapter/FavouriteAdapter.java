@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.Glide;
 import com.chat.zipchat.clone.Activity.ChatActivity;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
-import com.chat.zipchat.clone.Model.Favourites.FavouritePojo;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.FavouritePojo;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 
 import java.util.List;

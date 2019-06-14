@@ -31,11 +31,11 @@ import com.chat.zipchat.clone.Activity.ZoomActivity;
 import com.chat.zipchat.clone.Adapter.DeliverOrSeenAdapter;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Common.AudioWife;
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
-import com.chat.zipchat.clone.Model.Group.GroupMember;
-import com.chat.zipchat.clone.Model.Group.GroupMemberDao;
-import com.chat.zipchat.clone.Model.Group.Groups;
-import com.chat.zipchat.clone.Model.Group.GroupsDao;
+import com.chat.zipchat.clone.Model.ChatPojo;
+import com.chat.zipchat.clone.Model.GroupMember;
+import com.chat.zipchat.clone.Model.GroupMemberDao;
+import com.chat.zipchat.clone.Model.Groups;
+import com.chat.zipchat.clone.Model.GroupsDao;
 import com.chat.zipchat.clone.R;
 
 import java.text.SimpleDateFormat;

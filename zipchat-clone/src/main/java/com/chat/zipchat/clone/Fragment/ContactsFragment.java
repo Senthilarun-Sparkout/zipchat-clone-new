@@ -26,11 +26,11 @@ import android.widget.TextView;
 import com.chat.zipchat.clone.Activity.MainActivity;
 import com.chat.zipchat.clone.Adapter.ContactListAdapter;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Contact.ContactItemRequest;
-import com.chat.zipchat.clone.Model.Contact.ContactRequest;
-import com.chat.zipchat.clone.Model.Contact.ContactResponse;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
+import com.chat.zipchat.clone.Model.ContactItemRequest;
+import com.chat.zipchat.clone.Model.ContactRequest;
+import com.chat.zipchat.clone.Model.ContactResponse;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 
 import java.util.ArrayList;

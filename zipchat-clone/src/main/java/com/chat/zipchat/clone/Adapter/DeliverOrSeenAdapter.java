@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
-import com.chat.zipchat.clone.Model.Group.GroupMember;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.GroupMember;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 
 import java.util.List;

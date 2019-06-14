@@ -21,9 +21,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chat.zipchat.clone.Adapter.ViewPagerAdapter.AddmoneySavedCardPagerAdapter;
-import com.chat.zipchat.clone.Model.DepositTrans.CardDetails;
-import com.chat.zipchat.clone.Model.DepositTrans.DepositTransRequest;
-import com.chat.zipchat.clone.Model.DepositTrans.DepositTranssResponce;
+import com.chat.zipchat.clone.Model.CardDetails;
+import com.chat.zipchat.clone.Model.Deposit.DepositTransRequest;
+import com.chat.zipchat.clone.Model.Deposit.DepositTranssResponce;
 import com.chat.zipchat.clone.Model.Payments.GetUserSavedCards;
 import com.chat.zipchat.clone.Model.Payments.GetUtoXPojo;
 import com.chat.zipchat.clone.R;

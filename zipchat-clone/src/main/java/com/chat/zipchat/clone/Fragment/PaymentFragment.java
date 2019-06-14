@@ -26,7 +26,7 @@ import com.chat.zipchat.clone.Activity.Payments.SendMoneyActivity;
 import com.chat.zipchat.clone.Activity.Payments.TransHistoryActivity;
 import com.chat.zipchat.clone.Activity.Payments.WithdrawMoneyActivity;
 import com.chat.zipchat.clone.Adapter.Payment.SendTransAdapter;
-import com.chat.zipchat.clone.Model.GetMobileNumber.GetMobileNumberResponse;
+import com.chat.zipchat.clone.Model.GetMobileNumbers.GetMobileNumberResponse;
 import com.chat.zipchat.clone.Model.Payments.GetAmountPojo;
 import com.chat.zipchat.clone.Model.Payments.GetXtoUPojo;
 import com.chat.zipchat.clone.Model.SentTransaction.SentTransListPojo;

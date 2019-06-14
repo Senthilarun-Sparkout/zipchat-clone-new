@@ -16,11 +16,11 @@ import com.bumptech.glide.Glide;
 import com.chat.zipchat.clone.Activity.ChatActivity;
 import com.chat.zipchat.clone.Activity.Group.GroupChatActivity;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.ChatList.ChatListPojo;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
-import com.chat.zipchat.clone.Model.Group.GroupItems;
-import com.chat.zipchat.clone.Model.Group.GroupItemsDao;
+import com.chat.zipchat.clone.Model.ChatListPojo;
+import com.chat.zipchat.clone.Model.GroupItemsDao;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.GroupItems;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 
 import java.text.SimpleDateFormat;

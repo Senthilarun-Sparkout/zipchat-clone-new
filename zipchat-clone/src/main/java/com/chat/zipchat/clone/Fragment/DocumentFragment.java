@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.chat.zipchat.clone.Adapter.MediaAdapter;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
-import com.chat.zipchat.clone.Model.Chat.ChatPojoDao;
+import com.chat.zipchat.clone.Model.ChatPojo;
+import com.chat.zipchat.clone.Model.ChatPojoDao;
 import com.chat.zipchat.clone.R;
 
 import java.util.ArrayList;

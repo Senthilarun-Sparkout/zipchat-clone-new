@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
+import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.R;
 
 import java.util.List;

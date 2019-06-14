@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 import com.chat.zipchat.clone.Adapter.FavouriteAdapter;
 import com.chat.zipchat.clone.Common.App;
-import com.chat.zipchat.clone.Model.Favourites.FavouritePojo;
+import com.chat.zipchat.clone.Model.FavouritePojo;
 import com.chat.zipchat.clone.R;
 
 import java.util.ArrayList;

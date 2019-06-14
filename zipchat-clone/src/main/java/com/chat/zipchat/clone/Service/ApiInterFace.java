@@ -1,10 +1,10 @@
 package com.chat.zipchat.clone.Service;
 
-import com.chat.zipchat.clone.Model.Contact.ContactRequest;
-import com.chat.zipchat.clone.Model.Contact.ContactResponse;
-import com.chat.zipchat.clone.Model.DepositTrans.DepositTransRequest;
-import com.chat.zipchat.clone.Model.DepositTrans.DepositTranssResponce;
-import com.chat.zipchat.clone.Model.GetMobileNumber.GetMobileNumberResponse;
+import com.chat.zipchat.clone.Model.ContactRequest;
+import com.chat.zipchat.clone.Model.ContactResponse;
+import com.chat.zipchat.clone.Model.Deposit.DepositTransRequest;
+import com.chat.zipchat.clone.Model.Deposit.DepositTranssResponce;
+import com.chat.zipchat.clone.Model.GetMobileNumbers.GetMobileNumberResponse;
 import com.chat.zipchat.clone.Model.GifStickers.GifResponse;
 import com.chat.zipchat.clone.Model.GifStickers.StickerResponse;
 import com.chat.zipchat.clone.Model.Notification.NotificationRequest;

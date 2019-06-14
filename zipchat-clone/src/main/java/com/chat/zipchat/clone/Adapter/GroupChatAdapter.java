@@ -29,11 +29,11 @@ import com.chat.zipchat.clone.Activity.WebActivity;
 import com.chat.zipchat.clone.Activity.ZoomActivity;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Common.AudioWife;
-import com.chat.zipchat.clone.Model.Chat.ChatPojo;
-import com.chat.zipchat.clone.Model.Contact.ResultItem;
-import com.chat.zipchat.clone.Model.Contact.ResultItemDao;
-import com.chat.zipchat.clone.Model.Group.GroupMember;
-import com.chat.zipchat.clone.Model.Group.GroupMemberDao;
+import com.chat.zipchat.clone.Model.ChatPojo;
+import com.chat.zipchat.clone.Model.GroupMemberDao;
+import com.chat.zipchat.clone.Model.ResultItem;
+import com.chat.zipchat.clone.Model.GroupMember;
+import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 
 import java.text.DecimalFormat;

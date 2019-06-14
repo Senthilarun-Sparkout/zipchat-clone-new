@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.chat.zipchat.clone.Adapter.Payment.MobileNumberAdapter;
-import com.chat.zipchat.clone.Model.GetMobileNumber.GetMobileNumberResponse;
+import com.chat.zipchat.clone.Model.GetMobileNumbers.GetMobileNumberResponse;
 import com.chat.zipchat.clone.R;
 
 import java.util.HashMap;
