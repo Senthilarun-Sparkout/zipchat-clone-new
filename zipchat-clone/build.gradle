@@ -91,7 +91,7 @@ dependencies {
     implementation 'com.stripe:stripe-android:6.1.2'
 
 //    *Sinch
-    implementation(name: 'sinch-android-rtc', version: '+', ext: 'aar')
+    //implementation(name: 'sinch-android-rtc', version: '+', ext: 'aar')
 
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'ja.burhanrashid52:photoeditor:0.3.3'
