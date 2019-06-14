@@ -1,7 +1,7 @@
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-
+group='com.github.Senthilarun-Sparkout'
 
 android {
 
@@ -19,8 +19,6 @@ android {
         debug {
             buildConfigField 'String', "BaseUrl", baseurl
             buildConfigField 'String', "PaymentUrl", paymenturl
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         dexOptions {
             matchingFallbacks = ['release', 'debug']
@@ -104,6 +102,5 @@ dependencies {
     implementation 'ja.burhanrashid52:photoeditor:0.3.3'
 
     implementation "com.android.support:support-core-utils:28.0.0"
-    implementation 'com.github.jitpack:gradle-simple:1.0'
 
 }
