@@ -2,6 +2,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.github.dcendents.android-maven'
 
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+group = 'com.github.Senthilarun-Sparkout'
+version = '1.0.13'
 
 android {
 
@@ -12,7 +21,7 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
         versionCode 1
-        versionName "1.0"
+        versionName version
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,11 +39,6 @@ android {
             buildConfigField 'String', "PaymentUrl", paymenturl
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    repositories {
-        flatDir {
-            dirs 'libs'
         }
     }
     lintOptions {
@@ -106,4 +110,29 @@ dependencies {
     implementation "com.android.support:support-core-utils:28.0.0"
     implementation 'com.github.jitpack:gradle-simple:1.0'
 
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task classesJar(type: Jar) {
+    from "$buildDir/intermediates/classes/release"
+}
+
+artifacts {
+    archives classesJar
+    archives javadocJar
+    archives sourcesJar
 }
