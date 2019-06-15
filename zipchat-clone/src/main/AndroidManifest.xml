@@ -149,10 +149,6 @@
             android:name=".Activity.ShareLocationActivity"
             android:screenOrientation="portrait" />
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="e8e4bd538b24b05205288a6fec2466a09bb5a427" />
-
         <activity
             android:name=".Activity.PhotoEdit.PhotoEditActivity"
             android:screenOrientation="portrait" />

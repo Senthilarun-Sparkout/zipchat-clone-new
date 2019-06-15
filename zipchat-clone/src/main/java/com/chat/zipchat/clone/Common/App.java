@@ -21,7 +21,6 @@ import com.chat.zipchat.clone.Model.GroupMemberDao;
 import com.chat.zipchat.clone.Model.GroupsDao;
 import com.chat.zipchat.clone.Model.LocalDataPojoDao;
 import com.chat.zipchat.clone.Model.ResultItemDao;
-import com.crashlytics.android.Crashlytics;
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
 import com.sinch.android.rtc.ClientRegistration;
@@ -33,8 +32,6 @@ import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.calling.CallClient;
 import com.sinch.android.rtc.calling.CallClientListener;
 import com.sinch.android.rtc.video.VideoScalingType;
-
-import io.fabric.sdk.android.Fabric;
 
 import static com.chat.zipchat.clone.Common.BaseClass.UserId;
 import static com.chat.zipchat.clone.Common.BaseClass.myLog;
@@ -88,7 +85,6 @@ public class App extends Application {
 
         Firebase.setAndroidContext(this);
         FirebaseApp.initializeApp(this);
-        Fabric.with(this, new Crashlytics());
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

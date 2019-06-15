@@ -80,7 +80,6 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.firebase:firebase-client-android:2.5.2+'
     implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
 
     //Zoom
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
