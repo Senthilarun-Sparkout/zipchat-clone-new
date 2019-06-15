@@ -21,30 +21,30 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        ChatListPojoDao.createTable(db, ifNotExists);
-        ContactResponseDao.createTable(db, ifNotExists);
-        LocalDataPojoDao.createTable(db, ifNotExists);
-        GroupsDao.createTable(db, ifNotExists);
-        GroupItemsDao.createTable(db, ifNotExists);
-        FavouritePojoDao.createTable(db, ifNotExists);
         AcceptRejectPojoDao.createTable(db, ifNotExists);
-        GroupMemberDao.createTable(db, ifNotExists);
-        ResultItemDao.createTable(db, ifNotExists);
+        ChatListPojoDao.createTable(db, ifNotExists);
         ChatPojoDao.createTable(db, ifNotExists);
+        ContactResponseDao.createTable(db, ifNotExists);
+        FavouritePojoDao.createTable(db, ifNotExists);
+        GroupItemsDao.createTable(db, ifNotExists);
+        GroupMemberDao.createTable(db, ifNotExists);
+        GroupsDao.createTable(db, ifNotExists);
+        LocalDataPojoDao.createTable(db, ifNotExists);
+        ResultItemDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        ChatListPojoDao.dropTable(db, ifExists);
-        ContactResponseDao.dropTable(db, ifExists);
-        LocalDataPojoDao.dropTable(db, ifExists);
-        GroupsDao.dropTable(db, ifExists);
-        GroupItemsDao.dropTable(db, ifExists);
-        FavouritePojoDao.dropTable(db, ifExists);
         AcceptRejectPojoDao.dropTable(db, ifExists);
-        GroupMemberDao.dropTable(db, ifExists);
-        ResultItemDao.dropTable(db, ifExists);
+        ChatListPojoDao.dropTable(db, ifExists);
         ChatPojoDao.dropTable(db, ifExists);
+        ContactResponseDao.dropTable(db, ifExists);
+        FavouritePojoDao.dropTable(db, ifExists);
+        GroupItemsDao.dropTable(db, ifExists);
+        GroupMemberDao.dropTable(db, ifExists);
+        GroupsDao.dropTable(db, ifExists);
+        LocalDataPojoDao.dropTable(db, ifExists);
+        ResultItemDao.dropTable(db, ifExists);
     }
 
     /**
@@ -63,16 +63,16 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(ChatListPojoDao.class);
-        registerDaoClass(ContactResponseDao.class);
-        registerDaoClass(LocalDataPojoDao.class);
-        registerDaoClass(GroupsDao.class);
-        registerDaoClass(GroupItemsDao.class);
-        registerDaoClass(FavouritePojoDao.class);
         registerDaoClass(AcceptRejectPojoDao.class);
-        registerDaoClass(GroupMemberDao.class);
-        registerDaoClass(ResultItemDao.class);
+        registerDaoClass(ChatListPojoDao.class);
         registerDaoClass(ChatPojoDao.class);
+        registerDaoClass(ContactResponseDao.class);
+        registerDaoClass(FavouritePojoDao.class);
+        registerDaoClass(GroupItemsDao.class);
+        registerDaoClass(GroupMemberDao.class);
+        registerDaoClass(GroupsDao.class);
+        registerDaoClass(LocalDataPojoDao.class);
+        registerDaoClass(ResultItemDao.class);
     }
 
     public DaoSession newSession() {
