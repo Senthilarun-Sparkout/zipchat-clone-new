@@ -63,24 +63,25 @@ import com.chat.zipchat.clone.Activity.PhotoEdit.PhotoEditActivity;
 import com.chat.zipchat.clone.Adapter.ChatAdapter;
 import com.chat.zipchat.clone.Adapter.GifAdapter;
 import com.chat.zipchat.clone.Adapter.StickerAdapter;
+import com.chat.zipchat.clone.ChatAssert;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Common.BaseClass;
 import com.chat.zipchat.clone.Common.ImageFilePath;
 import com.chat.zipchat.clone.Common.RecyclerItemClickListener;
 import com.chat.zipchat.clone.Model.AcceptRejectPojo;
 import com.chat.zipchat.clone.Model.AcceptRejectPojoDao;
+import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.Model.ChatListPojoDao;
 import com.chat.zipchat.clone.Model.ChatPojo;
-import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.Model.ChatPojoDao;
-import com.chat.zipchat.clone.Model.LocalDataPojoDao;
-import com.chat.zipchat.clone.Model.ResultItem;
-import com.chat.zipchat.clone.Model.LocalDataPojo;
 import com.chat.zipchat.clone.Model.GifStickers.GifResponse;
 import com.chat.zipchat.clone.Model.GifStickers.StickerResponse;
+import com.chat.zipchat.clone.Model.LocalDataPojo;
+import com.chat.zipchat.clone.Model.LocalDataPojoDao;
 import com.chat.zipchat.clone.Model.Notification.NotificationRequest;
 import com.chat.zipchat.clone.Model.Notification.NotificationResponse;
 import com.chat.zipchat.clone.Model.ProfileImageUpdate.ProfileImageResponse;
+import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.chat.zipchat.clone.R;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -272,24 +273,17 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         acceptRejectPojoList = App.getmInstance().acceptRejectPojoDao.queryBuilder().where(AcceptRejectPojoDao.Properties.FriendId.eq(toId)).list();
 
 
-      /*  Collections.sort(chatPojoList, new Comparator<ChatPojo>() {
-            @Override
-            public int compare(ChatPojo o1, ChatPojo o2) {
-                return o1.getTimestamp().compareTo(o2.getTimestamp());
-            }
-
-        });*/
-
         resultItems = App.getmInstance().resultItemDao.queryBuilder().where(
                 ResultItemDao.Properties.Id.eq(toId)).list();
 
         if (resultItems.size() > 0) {
 
-            if (resultItems.get(0).getIsFromContact().equalsIgnoreCase("1")) {
+            /*if (resultItems.get(0).getIsFromContact().equalsIgnoreCase("1")) {
                 mTxtContactName.setText(resultItems.get(0).getName());
             } else {
                 mTxtContactName.setText(resultItems.get(0).getMobile_number());
-            }
+            }*/
+            mTxtContactName.setText(resultItems.get(0).getName());
             Glide.with(this).setDefaultRequestOptions(requestOptionsD()).load(resultItems.get(0).getProfile_picture()).into(mImgContact);
         } else {
             mTxtContactName.setText("Unknown");
@@ -466,6 +460,32 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         DatabaseReference referenceFriendList = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(ChatActivity.this)).child("friend-list");
         referenceFriendList.child(toId).addValueEventListener(valueEventListenerFriendList);
 
+        ImageView iv_call = findViewById(R.id.iv_call);
+        ImageView iv_video_call = findViewById(R.id.iv_video_call);
+
+        if (null != getIntent().getExtras().getSerializable("assets")) {
+
+            ChatAssert chatAssert = (ChatAssert) getIntent().getExtras().getSerializable("assets");
+            assert chatAssert != null;
+            if (chatAssert.getAudio_call() != 0) {
+                iv_call.setImageResource(chatAssert.getAudio_call());
+            }
+            if (chatAssert.getVideo_call() != 0) {
+                iv_video_call.setImageResource(chatAssert.getVideo_call());
+            }
+            if (chatAssert.getAdd() != 0) {
+                mImgAdd.setImageResource(chatAssert.getAdd());
+            }
+            if (chatAssert.getSend() != 0) {
+                mImgSend.setImageResource(chatAssert.getSend());
+            }
+            if (chatAssert.getRecord_audio() != 0) {
+                mImgRecAudio.setImageResource(chatAssert.getRecord_audio());
+            }
+            if (chatAssert.getCancel() != 0) {
+                mImgCancel.setImageResource(chatAssert.getCancel());
+            }
+        }
     }
 
     @Override
@@ -1227,7 +1247,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                         public void onSuccess(Void aVoid) {
                             ChatActivity.this.updateFriendList();
                         }
-                    });;
+                    });
+                    ;
 
                     SendNotification();
                 }
@@ -1306,7 +1327,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                         public void onSuccess(Void aVoid) {
                             ChatActivity.this.updateFriendList();
                         }
-                    });;
+                    });
+                    ;
 
                 }
 
@@ -1369,7 +1391,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                                 public void onSuccess(Void aVoid) {
                                     updateFriendList();
                                 }
-                            });;
+                            });
+                            ;
 
                             SendNotification();
                         }
@@ -1856,7 +1879,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 public void onSuccess(Void aVoid) {
                     ChatActivity.this.updateFriendList();
                 }
-            });;
+            });
+            ;
 
             SendNotification();
         }

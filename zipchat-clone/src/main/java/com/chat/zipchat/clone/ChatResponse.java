@@ -1,31 +1,20 @@
-package com.chat.zipchat.clone.Fragment;
+package com.chat.zipchat.clone;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.chat.zipchat.clone.Adapter.ChatListAdapter;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Model.AcceptRejectPojo;
 import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.Model.ChatListPojoDao;
 import com.chat.zipchat.clone.Model.ContactResponse;
-import com.chat.zipchat.clone.Model.GroupMemberDao;
-import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.GroupItems;
 import com.chat.zipchat.clone.Model.GroupMember;
+import com.chat.zipchat.clone.Model.GroupMemberDao;
 import com.chat.zipchat.clone.Model.Groups;
+import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
-import com.chat.zipchat.clone.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,37 +31,23 @@ import java.util.List;
 import static com.chat.zipchat.clone.Common.BaseClass.UserId;
 import static com.chat.zipchat.clone.Common.BaseClass.myLog;
 
+public class ChatResponse {
 
-@SuppressLint("ValidFragment")
-public class ChatFragment extends Fragment {
+    @SuppressLint("StaticFieldLeak")
+    private static Context mContext;
+    private static DatabaseReference referenceContact;
+    private static List<ChatListPojo> chatPojoList;
 
-    Context mContext;
-    RecyclerView mRecyclerChat;
-    private DatabaseReference referenceContact;
-    List<ChatListPojo> chatPojoList;
-    ChatListAdapter chatListAdapter;
-    TextView mTxtNoChat;
+    private static ChatList listener;
+    private static boolean mIsGroup;
 
-    public ChatFragment(Context mContext) {
-        this.mContext = mContext;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chat, container, false);
-
-        mTxtNoChat = view.findViewById(R.id.mTxtNoChat);
-
-
-        mRecyclerChat = view.findViewById(R.id.mRcyclerChat);
-        final LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
-        mRecyclerChat.setLayoutManager(mLayoutManager);
-        mRecyclerChat.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerChat.setHasFixedSize(true);
+    public static void initiateChat(Context context, ChatList chatList, boolean isGroup) {
+        mContext = context;
+        listener = chatList;
+        mIsGroup = isGroup;
 
         chatPojoList = new ArrayList<>();
-        chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+        chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().where(ChatListPojoDao.Properties.IsGroup.eq(isGroup)).orderAsc(ChatListPojoDao.Properties.Timestamp).list();
 
         Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
             @Override
@@ -81,24 +56,23 @@ public class ChatFragment extends Fragment {
             }
         });
 
-        chatListAdapter = new ChatListAdapter(mContext, chatPojoList);
-        mRecyclerChat.setAdapter(chatListAdapter);
+        listener.callback(chatPojoList);
 
-        return view;
+        referenceContact = FirebaseDatabase.getInstance().getReference("user-messages").child(UserId(mContext));
+        referenceContact.addValueEventListener(valueEventListenerContact);
+
+        DatabaseReference referenceFriendList = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(mContext)).child("friend-list");
+        referenceFriendList.addValueEventListener(valueEventListenerFriendList);
+
     }
 
-    ValueEventListener valueEventListenerContact = new ValueEventListener() {
+    private static ValueEventListener valueEventListenerContact = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
 
             if (dataSnapshot.exists()) {
-                mRecyclerChat.setVisibility(View.VISIBLE);
-                mTxtNoChat.setVisibility(View.GONE);
 
                 for (final DataSnapshot ds : dataSnapshot.getChildren()) {
-
-//                    Hide by Arun on 07-01-2019
-//                    chatPojoList.clear();
 
                     if (ds.getValue().equals("1")) {
 
@@ -253,7 +227,7 @@ public class ChatFragment extends Fragment {
 
                                                 App.getmInstance().chatListPojoDao.insertOrReplace(chatListPojo);
 
-                                                chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+                                                chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).where(ChatListPojoDao.Properties.IsGroup.eq(mIsGroup)).list();
 
                                                 Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
                                                     @Override
@@ -261,7 +235,8 @@ public class ChatFragment extends Fragment {
                                                         return o2.getTimestamp().compareTo(o1.getTimestamp());
                                                     }
                                                 });
-                                                chatListAdapter.updateFragChatList(chatPojoList);
+
+                                                listener.callback(chatPojoList);
                                             }
 
                                             @Override
@@ -347,8 +322,6 @@ public class ChatFragment extends Fragment {
                 App.getmInstance().chatListPojoDao.deleteAll();
                 App.getmInstance().chatPojoDao.deleteAll();
                 App.getmInstance().groupItemsDao.deleteAll();
-                mTxtNoChat.setVisibility(View.VISIBLE);
-                mRecyclerChat.setVisibility(View.GONE);
             }
         }
 
@@ -358,7 +331,7 @@ public class ChatFragment extends Fragment {
         }
     };
 
-    ValueEventListener valueEventListenerMessage = new ValueEventListener() {
+    private static ValueEventListener valueEventListenerMessage = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -434,7 +407,7 @@ public class ChatFragment extends Fragment {
 
                 App.getmInstance().chatListPojoDao.insertOrReplace(chatListPojo);
 
-                chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+                chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).where(ChatListPojoDao.Properties.IsGroup.eq(mIsGroup)).list();
 
                 Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
                     @Override
@@ -442,13 +415,7 @@ public class ChatFragment extends Fragment {
                         return o2.getTimestamp().compareTo(o1.getTimestamp());
                     }
                 });
-
-//                    Hide by Arun on 07-01-2019
-              /*  chatListAdapter = new ChatListAdapter(mContext, chatPojoList);
-                mRcyclerChat.setAdapter(chatListAdapter);*/
-//                chatListAdapter.notifyDataSetChanged();
-
-                chatListAdapter.updateFragChatList(chatPojoList);
+                listener.callback(chatPojoList);
             }
         }
 
@@ -459,7 +426,7 @@ public class ChatFragment extends Fragment {
 
     };
 
-    ValueEventListener valueEventListenerFriendList = new ValueEventListener() {
+    private static ValueEventListener valueEventListenerFriendList = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -503,15 +470,5 @@ public class ChatFragment extends Fragment {
             myLog("onCancelled: ", databaseError.getMessage());
         }
     };
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        referenceContact = FirebaseDatabase.getInstance().getReference("user-messages").child(UserId(mContext));
-        referenceContact.addValueEventListener(valueEventListenerContact);
-
-        DatabaseReference referenceFriendList = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(mContext)).child("friend-list");
-        referenceFriendList.addValueEventListener(valueEventListenerFriendList);
-    }
 
 }

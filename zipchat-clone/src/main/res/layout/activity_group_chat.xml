@@ -255,7 +255,7 @@
                     android:layout_height="40dp"
                     android:padding="10dp"
                     android:visibility="gone"
-                    android:src="@drawable/ic_close_white" />
+                    android:src="@drawable/ic_close" />
 
             </RelativeLayout>
 

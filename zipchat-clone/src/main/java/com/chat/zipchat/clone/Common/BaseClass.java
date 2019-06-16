@@ -160,6 +160,7 @@ public class BaseClass {
         SharedPreferences sharedpreferences = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         String userId = sharedpreferences.getString(KEY_ID, null);
         return userId;
+//        return "5cc6ac5956274702c74ebbbb";
     }
 
     public static String DeviceToken() {

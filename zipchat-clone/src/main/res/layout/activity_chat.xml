@@ -151,14 +151,13 @@
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/mImgAdd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
                         android:layout_centerInParent="true"
+                        android:padding="10dp"
                         android:layout_gravity="center"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/add_pic"
-                        android:padding="10dp" />
+                        android:src="@drawable/add_pic" />
 
                     <com.chat.zipchat.clone.CustomText.CustomRegularEditView
                         android:id="@+id/mTxtMessage"
@@ -176,7 +175,7 @@
                         android:id="@+id/mImgEmoji"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
@@ -213,15 +212,15 @@
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/iv_call"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:padding="10dp"
                             android:src="@drawable/ic_call" />
 
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/iv_video_call"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:padding="10dp"
                             android:src="@drawable/ic_video_call" />
 
@@ -243,7 +242,6 @@
                         android:background="@drawable/circle_back"
                         android:padding="10dp"
                         android:src="@drawable/sendarrow"
-                        android:text="Send"
                         android:visibility="gone" />
 
                     <android.support.v7.widget.AppCompatImageView
@@ -252,15 +250,14 @@
                         android:layout_height="40dp"
                         android:background="@drawable/circle_back"
                         android:padding="10dp"
-                        android:src="@drawable/ic_mic"
-                        android:text="Send" />
+                        android:src="@drawable/ic_mic" />
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/mImgCancel"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:padding="10dp"
-                        android:src="@drawable/ic_close_white"
+                        android:src="@drawable/ic_close"
                         android:visibility="gone" />
 
                 </RelativeLayout>
