@@ -65,13 +65,13 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
 
         List<FavouritePojo> favouritePojos = App.getmInstance().favouritePojoDao.queryBuilder().where(FavouritePojoDao.Properties.FavouriteId.eq(toId)).list();
 
-        if (favouritePojos.size() > 0) {
+        /*if (favouritePojos.size() > 0) {
             mAddFavourite.setVisibility(View.GONE);
             mRemoveFavourite.setVisibility(View.VISIBLE);
         } else {
             mAddFavourite.setVisibility(View.VISIBLE);
             mRemoveFavourite.setVisibility(View.GONE);
-        }
+        }*/
 
     }
 

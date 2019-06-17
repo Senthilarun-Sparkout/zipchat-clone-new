@@ -37,17 +37,20 @@ public class ChatResponse {
     private static Context mContext;
     private static DatabaseReference referenceContact;
     private static List<ChatListPojo> chatPojoList;
+    private static List<AcceptRejectPojo> acceptRejectPojoList;
 
     private static ChatList listener;
-    private static boolean mIsGroup;
+    private static boolean mIsGroup, mIsPending;
 
-    public static void initiateChat(Context context, ChatList chatList, boolean isGroup) {
+    public static void initiateChat(Context context, ChatList chatList, boolean isGroup, boolean isPending) {
         mContext = context;
         listener = chatList;
         mIsGroup = isGroup;
+        mIsPending = isPending;
 
         chatPojoList = new ArrayList<>();
-        chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().where(ChatListPojoDao.Properties.IsGroup.eq(isGroup)).orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+        chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().where(ChatListPojoDao.Properties.IsGroup.eq(mIsGroup)).orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+        acceptRejectPojoList = App.getmInstance().acceptRejectPojoDao.queryBuilder().list();
 
         Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
             @Override
@@ -55,6 +58,28 @@ public class ChatResponse {
                 return o2.getTimestamp().compareTo(o1.getTimestamp());
             }
         });
+
+        if (mIsPending) {
+            for (int i = 0; i < chatPojoList.size(); i++) {
+                for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                    if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                        if (acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                            chatPojoList.remove(i);
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < chatPojoList.size(); i++) {
+                for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                    if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                        if (!acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                            chatPojoList.remove(i);
+                        }
+                    }
+                }
+            }
+        }
 
         listener.callback(chatPojoList);
 
@@ -409,6 +434,28 @@ public class ChatResponse {
 
                 chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().orderAsc(ChatListPojoDao.Properties.Timestamp).where(ChatListPojoDao.Properties.IsGroup.eq(mIsGroup)).list();
 
+                if (mIsPending) {
+                    for (int i = 0; i < chatPojoList.size(); i++) {
+                        for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                            if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                                if (acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                                    chatPojoList.remove(i);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < chatPojoList.size(); i++) {
+                        for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                            if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                                if (!acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                                    chatPojoList.remove(i);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
                     @Override
                     public int compare(ChatListPojo o1, ChatListPojo o2) {
@@ -452,6 +499,40 @@ public class ChatResponse {
                                 }
                             }
                             App.getmInstance().acceptRejectPojoDao.insertOrReplace(acceptRejectPojo);
+
+                            chatPojoList = App.getmInstance().chatListPojoDao.queryBuilder().where(ChatListPojoDao.Properties.IsGroup.eq(mIsGroup)).orderAsc(ChatListPojoDao.Properties.Timestamp).list();
+                            acceptRejectPojoList = App.getmInstance().acceptRejectPojoDao.queryBuilder().list();
+
+                            Collections.sort(chatPojoList, new Comparator<ChatListPojo>() {
+                                @Override
+                                public int compare(ChatListPojo o1, ChatListPojo o2) {
+                                    return o2.getTimestamp().compareTo(o1.getTimestamp());
+                                }
+                            });
+
+                            if (mIsPending) {
+                                for (int i = 0; i < chatPojoList.size(); i++) {
+                                    for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                                        if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                                            if (acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                                                chatPojoList.remove(i);
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                for (int i = 0; i < chatPojoList.size(); i++) {
+                                    for (int j = 0; j < acceptRejectPojoList.size(); j++) {
+                                        if (chatPojoList.get(i).getToId().equals(acceptRejectPojoList.get(j).getFriendId())) {
+                                            if (!acceptRejectPojoList.get(j).getStatus().equals("1")) {
+                                                chatPojoList.remove(i);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            listener.callback(chatPojoList);
                         }
 
                         @Override

@@ -4,113 +4,112 @@ import java.io.Serializable;
 
 public class ChatAssert implements Serializable {
 
-    private int audio_call;
-    private int video_call;
-    private int send;
-    private int add;
-    private int payments;
-    private int photos;
-    private int documents;
-    private int location;
-    private int gif;
-    private int record_audio;
-    private int record_video;
-    private int cancel;
+    private int audio_call_icon;
+    private int video_call_icon;
+    private int send_icon;
+    private int record_audio_icon;
+    private int add_icon;
+    private int payments_icon;
+    private int photos_icon;
+    private int documents_icon;
+    private int location_icon;
+    private int gif_icon;
+    private int record_video_icon;
+    private int cancel_icon;
 
-
-    public int getAudio_call() {
-        return audio_call;
+    public int getAudio_call_icon() {
+        return audio_call_icon;
     }
 
-    public void setAudio_call(int audio_call) {
-        this.audio_call = audio_call;
+    public void setAudio_call_icon(int audio_call_icon) {
+        this.audio_call_icon = audio_call_icon;
     }
 
-    public int getVideo_call() {
-        return video_call;
+    public int getVideo_call_icon() {
+        return video_call_icon;
     }
 
-    public void setVideo_call(int video_call) {
-        this.video_call = video_call;
+    public void setVideo_call_icon(int video_call_icon) {
+        this.video_call_icon = video_call_icon;
     }
 
-    public int getSend() {
-        return send;
+    public int getSend_icon() {
+        return send_icon;
     }
 
-    public void setSend(int send) {
-        this.send = send;
+    public void setSend_icon(int send_icon) {
+        this.send_icon = send_icon;
     }
 
-    public int getAdd() {
-        return add;
+    public int getRecord_audio_icon() {
+        return record_audio_icon;
     }
 
-    public void setAdd(int add) {
-        this.add = add;
+    public void setRecord_audio_icon(int record_audio_icon) {
+        this.record_audio_icon = record_audio_icon;
     }
 
-    public int getPayments() {
-        return payments;
+    public int getAdd_icon() {
+        return add_icon;
     }
 
-    public void setPayments(int payments) {
-        this.payments = payments;
+    public void setAdd_icon(int add_icon) {
+        this.add_icon = add_icon;
     }
 
-    public int getPhotos() {
-        return photos;
+    public int getPayments_icon() {
+        return payments_icon;
     }
 
-    public void setPhotos(int photos) {
-        this.photos = photos;
+    public void setPayments_icon(int payments_icon) {
+        this.payments_icon = payments_icon;
     }
 
-    public int getDocuments() {
-        return documents;
+    public int getPhotos_icon() {
+        return photos_icon;
     }
 
-    public void setDocuments(int documents) {
-        this.documents = documents;
+    public void setPhotos_icon(int photos_icon) {
+        this.photos_icon = photos_icon;
     }
 
-    public int getLocation() {
-        return location;
+    public int getDocuments_icon() {
+        return documents_icon;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setDocuments_icon(int documents_icon) {
+        this.documents_icon = documents_icon;
     }
 
-    public int getGif() {
-        return gif;
+    public int getLocation_icon() {
+        return location_icon;
     }
 
-    public void setGif(int gif) {
-        this.gif = gif;
+    public void setLocation_icon(int location_icon) {
+        this.location_icon = location_icon;
     }
 
-    public int getRecord_video() {
-        return record_video;
+    public int getGif_icon() {
+        return gif_icon;
     }
 
-    public void setRecord_video(int record_video) {
-        this.record_video = record_video;
+    public void setGif_icon(int gif_icon) {
+        this.gif_icon = gif_icon;
     }
 
-    public int getRecord_audio() {
-        return record_audio;
+    public int getRecord_video_icon() {
+        return record_video_icon;
     }
 
-    public void setRecord_audio(int record_audio) {
-        this.record_audio = record_audio;
+    public void setRecord_video_icon(int record_video_icon) {
+        this.record_video_icon = record_video_icon;
     }
 
-    public int getCancel() {
-        return cancel;
+    public int getCancel_icon() {
+        return cancel_icon;
     }
 
-    public void setCancel(int cancel) {
-        this.cancel = cancel;
+    public void setCancel_icon(int cancel_icon) {
+        this.cancel_icon = cancel_icon;
     }
 }

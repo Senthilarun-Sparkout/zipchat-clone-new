@@ -116,7 +116,8 @@
             android:padding="10dp"
             android:text="@string/account"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <com.chat.zipchat.clone.CustomText.CustomRegularTextView
             android:id="@+id/mBlockContact"
@@ -125,7 +126,8 @@
             android:padding="10dp"
             android:text="@string/block_contact"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <com.chat.zipchat.clone.CustomText.CustomRegularTextView
             android:id="@+id/mAddFavourite"
@@ -134,7 +136,8 @@
             android:padding="10dp"
             android:text="@string/add_to_favourite"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <com.chat.zipchat.clone.CustomText.CustomRegularTextView
             android:id="@+id/mRemoveFavourite"
@@ -143,7 +146,8 @@
             android:padding="10dp"
             android:text="@string/remove_from_favourite"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

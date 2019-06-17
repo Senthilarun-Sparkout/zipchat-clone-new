@@ -122,7 +122,7 @@
         android:padding="10dp">
 
         <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/mImgIconGifStickers"
+            android:id="@+id/img_icon_stickers"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/ic_gif_green" />
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="11dp"
-            android:layout_toEndOf="@id/mImgIconGifStickers"
+            android:layout_toEndOf="@id/img_icon_stickers"
             android:text="@string/share_gif_stickers"
             android:textColor="@color/black"
             android:textSize="12sp" />
@@ -147,7 +147,7 @@
         android:padding="10dp">
 
         <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/mImgRecVideo"
+            android:id="@+id/img_rec_video"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="17dp"
-            android:layout_toRightOf="@id/mImgRecVideo"
+            android:layout_toRightOf="@id/img_rec_video"
             android:text="@string/record_video"
             android:textColor="@color/black"
             android:textSize="12sp"

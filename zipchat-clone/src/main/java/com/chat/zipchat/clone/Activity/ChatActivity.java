@@ -27,7 +27,6 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -147,7 +146,7 @@ import static okhttp3.MediaType.parse;
 public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar mToolbarChat;
-    ImageView mImgBackChat, mImgEmoji, mImgSend, mImgAdd, mImgRecAudio, mImgRecVideo;
+    ImageView mImgBackChat, mImgEmoji, mImgSend, mImgAdd, mImgRecAudio;
     CircleImageView mImgContact;
     TextView mTxtContactName, mTxtStatus;
     RecyclerView mRvChat;
@@ -186,7 +185,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private String time = "";
 
     View mKeyBoardGifStrikers;
-    ImageView mImgIconGifStickers;
     ProgressBar mProgressGifStrikers;
     RecyclerView mRvGif, mRvStrikers;
 
@@ -195,6 +193,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayout llChatCalls, llWaitingResponse;
 
     List<AcceptRejectPojo> acceptRejectPojoList;
+
+    ImageView iv_call, iv_video_call;
+    ImageView mImgPayments, mImgPhotos, mImgDocument, imgIconStickers, imgRecVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,7 +217,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         mRlToolbarChat = findViewById(R.id.mRlToolbarChat);
         mImgAdd = findViewById(R.id.mImgAdd);
         mImgRecAudio = findViewById(R.id.mImgRecAudio);
-        mImgRecVideo = findViewById(R.id.mImgRecVideo);
         mImgCancel = findViewById(R.id.mImgCancel);
 
         mViewBg = findViewById(R.id.mViewBg);
@@ -236,8 +236,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
         mTxtStatus.setSelected(true);
 
-        AppCompatImageView ivCall = findViewById(R.id.iv_call);
-        AppCompatImageView ivVideoCall = findViewById(R.id.iv_video_call);
         llChatCalls = findViewById(R.id.ll_chat_calls);
 
         mImgBackChat.setOnClickListener(this);
@@ -251,9 +249,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         mDocumentRl.setOnClickListener(this);
         mLocationRl.setOnClickListener(this);
         mImgRecAudio.setOnClickListener(this);
-        mImgRecVideo.setOnClickListener(this);
-        ivCall.setOnClickListener(this);
-        ivVideoCall.setOnClickListener(this);
         mImgCancel.setOnClickListener(this);
 
         mListSearch = new ArrayList<>();
@@ -277,12 +272,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 ResultItemDao.Properties.Id.eq(toId)).list();
 
         if (resultItems.size() > 0) {
-
-            /*if (resultItems.get(0).getIsFromContact().equalsIgnoreCase("1")) {
-                mTxtContactName.setText(resultItems.get(0).getName());
-            } else {
-                mTxtContactName.setText(resultItems.get(0).getMobile_number());
-            }*/
             mTxtContactName.setText(resultItems.get(0).getName());
             Glide.with(this).setDefaultRequestOptions(requestOptionsD()).load(resultItems.get(0).getProfile_picture()).into(mImgContact);
         } else {
@@ -429,9 +418,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         mKeyBoardGifStrikers = findViewById(R.id.mKeyBoardGifStrikers);
-        mImgIconGifStickers = findViewById(R.id.mImgIconGifStickers);
         mProgressGifStrikers = findViewById(R.id.mProgressGifStrikers);
-        mImgIconGifStickers.setOnClickListener(this);
 
         mRvGif = findViewById(R.id.mRvGif);
         mRvGif.setLayoutManager(new GridLayoutManager(this, 2));
@@ -450,7 +437,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onTouch(View v, MotionEvent event) {
                 if (mKeyBoardGifStrikers.getVisibility() == View.VISIBLE) {
                     ShowHideKeyboard(ChatActivity.this, false, mTxtMessage);
-//                    mImgIconGifStickers.setBackground(ChatActivity.this.getResources().getDrawable(R.drawable.ic_gif));
                     mKeyBoardGifStrikers.setVisibility(View.GONE);
                 }
                 return false;
@@ -460,30 +446,52 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         DatabaseReference referenceFriendList = FirebaseDatabase.getInstance().getReference("user-details").child(UserId(ChatActivity.this)).child("friend-list");
         referenceFriendList.child(toId).addValueEventListener(valueEventListenerFriendList);
 
-        ImageView iv_call = findViewById(R.id.iv_call);
-        ImageView iv_video_call = findViewById(R.id.iv_video_call);
+        iv_call = findViewById(R.id.iv_call);
+        iv_video_call = findViewById(R.id.iv_video_call);
+        mImgPayments = findViewById(R.id.mImgPayments);
+        mImgDocument = findViewById(R.id.mImgDocument);
+        imgIconStickers = findViewById(R.id.img_icon_stickers);
+        imgRecVideo = findViewById(R.id.img_rec_video);
+
+        iv_call.setOnClickListener(this);
+        iv_video_call.setOnClickListener(this);
 
         if (null != getIntent().getExtras().getSerializable("assets")) {
 
             ChatAssert chatAssert = (ChatAssert) getIntent().getExtras().getSerializable("assets");
             assert chatAssert != null;
-            if (chatAssert.getAudio_call() != 0) {
-                iv_call.setImageResource(chatAssert.getAudio_call());
+            if (chatAssert.getAudio_call_icon() != 0) {
+                iv_call.setImageResource(chatAssert.getAudio_call_icon());
             }
-            if (chatAssert.getVideo_call() != 0) {
-                iv_video_call.setImageResource(chatAssert.getVideo_call());
+            if (chatAssert.getVideo_call_icon() != 0) {
+                iv_video_call.setImageResource(chatAssert.getVideo_call_icon());
             }
-            if (chatAssert.getAdd() != 0) {
-                mImgAdd.setImageResource(chatAssert.getAdd());
+            if (chatAssert.getSend_icon() != 0) {
+                mImgSend.setImageResource(chatAssert.getSend_icon());
             }
-            if (chatAssert.getSend() != 0) {
-                mImgSend.setImageResource(chatAssert.getSend());
+            if (chatAssert.getRecord_audio_icon() != 0) {
+                mImgRecAudio.setImageResource(chatAssert.getRecord_audio_icon());
             }
-            if (chatAssert.getRecord_audio() != 0) {
-                mImgRecAudio.setImageResource(chatAssert.getRecord_audio());
+            if (chatAssert.getAdd_icon() != 0) {
+                mImgAdd.setImageResource(chatAssert.getAdd_icon());
             }
-            if (chatAssert.getCancel() != 0) {
-                mImgCancel.setImageResource(chatAssert.getCancel());
+            if (chatAssert.getPayments_icon() != 0) {
+                mImgPayments.setImageResource(chatAssert.getPayments_icon());
+            }
+            if (chatAssert.getPhotos_icon() != 0) {
+                mImgPhotos.setImageResource(chatAssert.getPhotos_icon());
+            }
+            if (chatAssert.getDocuments_icon() != 0) {
+                mImgDocument.setImageResource(chatAssert.getDocuments_icon());
+            }
+            if (chatAssert.getGif_icon() != 0) {
+                imgIconStickers.setImageResource(chatAssert.getGif_icon());
+            }
+            if (chatAssert.getRecord_video_icon() != 0) {
+                imgRecVideo.setImageResource(chatAssert.getRecord_video_icon());
+            }
+            if (chatAssert.getCancel_icon() != 0) {
+                mImgCancel.setImageResource(chatAssert.getCancel_icon());
             }
         }
     }

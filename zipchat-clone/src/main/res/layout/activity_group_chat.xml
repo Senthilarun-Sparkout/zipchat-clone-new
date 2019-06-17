@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
                     android:src="@drawable/ic_arrow_back_black" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -36,15 +36,14 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_margin="7dp"
-                    android:layout_toRightOf="@id/mImgBackChat"
-                    android:src="@drawable/ic_group_icon" />
+                    android:layout_toEndOf="@id/mImgBackChat"
+                    android:src="@drawable/defult_user" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_margin="5dp"
-                    android:layout_toStartOf="@+id/iv_video_call"
                     android:layout_toEndOf="@+id/mImgContact"
                     android:gravity="center|left"
                     android:orientation="vertical">
@@ -67,32 +66,11 @@
                         android:marqueeRepeatLimit="marquee_forever"
                         android:scrollHorizontally="true"
                         android:singleLine="true"
-                        android:text="@string/tab_to_seen_the_group_info"
+                        android:text="@string/tab_to_seen_the_person_info"
                         android:textColor="@android:color/black"
                         android:textSize="12sp" />
 
                 </LinearLayout>
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/iv_video_call"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="5dp"
-                    android:layout_toStartOf="@+id/iv_call"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_video_call"
-                    android:visibility="gone" />
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/iv_call"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_call"
-                    android:visibility="gone" />
 
             </RelativeLayout>
 
@@ -111,7 +89,7 @@
         android:id="@+id/mRvChat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/Ll_text"
+        android:layout_above="@+id/ll_bottom_layout"
         android:layout_below="@id/mViewChat"
         android:transcriptMode="alwaysScroll" />
 
@@ -126,7 +104,7 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/Ll_text">
+        android:layout_above="@id/ll_bottom_layout">
 
         <LinearLayout
             android:id="@+id/bottom_sheet"
@@ -147,128 +125,174 @@
     </android.support.design.widget.CoordinatorLayout>
 
     <LinearLayout
-        android:id="@+id/Ll_text"
+        android:id="@+id/ll_bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/Ll_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_comment">
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="5dp">
+                android:background="@drawable/background_comment">
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgAdd"
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mImgAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/add_pic" />
+
+                    <com.chat.zipchat.clone.CustomText.CustomRegularEditView
+                        android:id="@+id/mTxtMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/mImgAdd"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/type_a_message"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="5dp" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mImgEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/emojis_icon"
+                        android:padding="10dp"
+                        android:visibility="gone" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/ic_gif"
+                        android:padding="13dp"
+                        android:visibility="gone" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/ic_rec_camera"
+                        android:padding="13dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_chat_calls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv_call"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_call" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv_video_call"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_video_call" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
-                    android:background="@drawable/add_pic"
-                    android:padding="10dp" />
+                    android:layout_marginEnd="8dp">
 
-                <com.chat.zipchat.clone.CustomText.CustomRegularEditView
-                    android:id="@+id/mTxtMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_toLeftOf="@id/mImgIconGifStickers"
-                    android:layout_toRightOf="@id/mImgAdd"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/type_a_message"
-                    android:inputType="textCapSentences|textMultiLine"
-                    android:padding="5dp" />
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mImgSend"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_back"
+                        android:padding="10dp"
+                        android:src="@drawable/sendarrow"
+                        android:visibility="gone" />
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgEmoji"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/emojis_icon"
-                    android:padding="10dp"
-                    android:visibility="gone" />
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mImgRecAudio"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_back"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_mic" />
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgIconGifStickers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_toLeftOf="@id/mImgRecVideo"
-                    android:background="@drawable/ic_gif"
-                    android:padding="13dp" />
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/mImgCancel"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_close"
+                        android:visibility="gone" />
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgRecVideo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/ic_rec_camera"
-                    android:padding="13dp" />
+                </RelativeLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgSend"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/circle_back"
-                    android:padding="10dp"
-                    android:src="@drawable/sendarrow"
-                    android:visibility="gone" />
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgRecAudio"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/circle_back"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_mic" />
-
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/mImgCancel"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_close" />
-
-            </RelativeLayout>
+            <include
+                android:id="@+id/mKeyBoardGifStrikers"
+                layout="@layout/layout_gif_strikers"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
-        <include
-            android:id="@+id/mKeyBoardGifStrikers"
-            layout="@layout/layout_gif_strikers"
+        <LinearLayout
+            android:id="@+id/ll_waiting_response"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="5dp"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.chat.zipchat.clone.CustomText.CustomRegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/waiting_for_accepting"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

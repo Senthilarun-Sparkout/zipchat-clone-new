@@ -29,7 +29,7 @@
         tools:replace="android:allowBackup"
         tools:targetApi="n">
 
-        <activity android:name=".Activity.ForwardActivity"></activity>
+        <activity android:name=".Activity.ForwardActivity" />
         <activity android:name=".Activity.Group.MessageInfoActivity" />
 
         <meta-data
@@ -41,8 +41,7 @@
 
         <activity
             android:name=".Activity.SplashActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".Common.OnClearFromRecentService"

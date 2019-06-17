@@ -3,15 +3,18 @@ package com.chat.zipchat.clone;
 import android.content.Context;
 
 import com.chat.zipchat.clone.Common.App;
+import com.chat.zipchat.clone.Model.ContactResponse;
 import com.chat.zipchat.clone.Model.ResultItem;
 import com.chat.zipchat.clone.Model.ResultItemDao;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import static com.chat.zipchat.clone.Common.BaseClass.ConvertedDateTime;
+import static com.chat.zipchat.clone.Common.BaseClass.UserId;
 import static com.chat.zipchat.clone.Common.BaseClass.sessionManager;
 
 public class UserDetails {
@@ -55,6 +58,24 @@ public class UserDetails {
         }
 
         return null;
+    }
+
+    public static void setContacts(Context contacts, ArrayList<ResultItem> getResult) {
+
+        App.getmInstance().contactResponseDao.deleteAll();
+        App.getmInstance().resultItemDao.deleteAll();
+        ContactResponse contactResponse = new ContactResponse();
+        contactResponse.setStatus(true);
+        App.getmInstance().contactResponseDao.insertOrReplace(contactResponse);
+
+        for (ResultItem con : getResult) {
+            if (!con.getId().equalsIgnoreCase(UserId(contacts))) {
+                con.setContact_id(contactResponse.contact_id);
+                con.setIsFromContact("1");
+                con.setIsSelected(false);
+                App.getmInstance().resultItemDao.insertOrReplace(con);
+            }
+        }
     }
 
 }

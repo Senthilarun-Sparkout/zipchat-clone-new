@@ -27,13 +27,11 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -68,20 +66,20 @@ import com.chat.zipchat.clone.Activity.VideoCallActivity;
 import com.chat.zipchat.clone.Adapter.GifAdapter;
 import com.chat.zipchat.clone.Adapter.GroupChatAdapter;
 import com.chat.zipchat.clone.Adapter.StickerAdapter;
+import com.chat.zipchat.clone.ChatAssert;
 import com.chat.zipchat.clone.Common.App;
 import com.chat.zipchat.clone.Common.BaseClass;
 import com.chat.zipchat.clone.Common.ImageFilePath;
 import com.chat.zipchat.clone.Common.RecyclerItemClickListener;
-import com.chat.zipchat.clone.Common.SwipeReply;
+import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.Model.ChatListPojoDao;
 import com.chat.zipchat.clone.Model.ChatPojo;
-import com.chat.zipchat.clone.Model.ChatListPojo;
 import com.chat.zipchat.clone.Model.ChatPojoDao;
-import com.chat.zipchat.clone.Model.GroupItemsDao;
-import com.chat.zipchat.clone.Model.LocalDataPojo;
 import com.chat.zipchat.clone.Model.GifStickers.GifResponse;
 import com.chat.zipchat.clone.Model.GifStickers.StickerResponse;
 import com.chat.zipchat.clone.Model.GroupItems;
+import com.chat.zipchat.clone.Model.GroupItemsDao;
+import com.chat.zipchat.clone.Model.LocalDataPojo;
 import com.chat.zipchat.clone.Model.LocalDataPojoDao;
 import com.chat.zipchat.clone.Model.Notification.NotificationRequest;
 import com.chat.zipchat.clone.Model.Notification.NotificationResponse;
@@ -193,6 +191,11 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
 
     ImageView mImgBtnGif, mImgBtnStickers, mImgCancel;
 
+    ImageView iv_call, iv_video_call;
+    ImageView mImgPayments, mImgPhotos, mImgDocument, imgIconStickers, imgRecVideo;
+
+    LinearLayout llChatCalls;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,7 +216,6 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         mRlToolbarChat = findViewById(R.id.mRlToolbarChat);
         mImgAdd = findViewById(R.id.mImgAdd);
         mImgRecAudio = findViewById(R.id.mImgRecAudio);
-        mImgRecVideo = findViewById(R.id.mImgRecVideo);
 
         mViewBg = findViewById(R.id.mViewBg);
         mPaymentsRl = findViewById(R.id.mPaymentsRl);
@@ -226,10 +228,6 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         mImgCancel = findViewById(R.id.mImgCancel);
 
         mTxtStatus.setSelected(true);
-
-        AppCompatImageView ivCall = findViewById(R.id.iv_call);
-        AppCompatImageView ivVideoCall = findViewById(R.id.iv_video_call);
-
         mImgBackChat.setOnClickListener(this);
         mImgEmoji.setOnClickListener(this);
         mImgSend.setOnClickListener(this);
@@ -241,9 +239,6 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         mDocumentRl.setOnClickListener(this);
         mLocationRl.setOnClickListener(this);
         mImgRecAudio.setOnClickListener(this);
-        mImgRecVideo.setOnClickListener(this);
-        ivCall.setOnClickListener(this);
-        ivVideoCall.setOnClickListener(this);
         mImgCancel.setOnClickListener(this);
 
         mListSearch = new ArrayList<>();
@@ -416,9 +411,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         });
 
         mKeyBoardGifStrikers = findViewById(R.id.mKeyBoardGifStrikers);
-        mImgIconGifStickers = findViewById(R.id.mImgIconGifStickers);
         mProgressGifStrikers = findViewById(R.id.mProgressGifStrikers);
-        mImgIconGifStickers.setOnClickListener(this);
 
         mRvGif = findViewById(R.id.mRvGif);
         mRvGif.setLayoutManager(new GridLayoutManager(this, 2));
@@ -444,7 +437,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        SwipeReply messageSwipeController = new SwipeReply(this, new SwipeReply.SwipeControllerActions() {
+       /* SwipeReply messageSwipeController = new SwipeReply(this, new SwipeReply.SwipeControllerActions() {
             @Override
             public void showReplyUI(int position) {
                 Log.e("Arun", "showReplyUI: " + position);
@@ -452,7 +445,59 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         });
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(messageSwipeController);
-        itemTouchHelper.attachToRecyclerView(mRvChat);
+        itemTouchHelper.attachToRecyclerView(mRvChat);*/
+
+        llChatCalls = findViewById(R.id.ll_chat_calls);
+        llChatCalls.setVisibility(View.GONE);
+
+        iv_call = findViewById(R.id.iv_call);
+        iv_video_call = findViewById(R.id.iv_video_call);
+        mImgPayments = findViewById(R.id.mImgPayments);
+        mImgDocument = findViewById(R.id.mImgDocument);
+        imgIconStickers = findViewById(R.id.img_icon_stickers);
+        imgRecVideo = findViewById(R.id.img_rec_video);
+
+        iv_call.setOnClickListener(this);
+        iv_video_call.setOnClickListener(this);
+
+        if (null != getIntent().getExtras().getSerializable("assets")) {
+
+            ChatAssert chatAssert = (ChatAssert) getIntent().getExtras().getSerializable("assets");
+            assert chatAssert != null;
+            if (chatAssert.getAudio_call_icon() != 0) {
+                iv_call.setImageResource(chatAssert.getAudio_call_icon());
+            }
+            if (chatAssert.getVideo_call_icon() != 0) {
+                iv_video_call.setImageResource(chatAssert.getVideo_call_icon());
+            }
+            if (chatAssert.getSend_icon() != 0) {
+                mImgSend.setImageResource(chatAssert.getSend_icon());
+            }
+            if (chatAssert.getRecord_audio_icon() != 0) {
+                mImgRecAudio.setImageResource(chatAssert.getRecord_audio_icon());
+            }
+            if (chatAssert.getAdd_icon() != 0) {
+                mImgAdd.setImageResource(chatAssert.getAdd_icon());
+            }
+            if (chatAssert.getPayments_icon() != 0) {
+                mImgPayments.setImageResource(chatAssert.getPayments_icon());
+            }
+            if (chatAssert.getPhotos_icon() != 0) {
+                mImgPhotos.setImageResource(chatAssert.getPhotos_icon());
+            }
+            if (chatAssert.getDocuments_icon() != 0) {
+                mImgDocument.setImageResource(chatAssert.getDocuments_icon());
+            }
+            if (chatAssert.getGif_icon() != 0) {
+                imgIconStickers.setImageResource(chatAssert.getGif_icon());
+            }
+            if (chatAssert.getRecord_video_icon() != 0) {
+                imgRecVideo.setImageResource(chatAssert.getRecord_video_icon());
+            }
+            if (chatAssert.getCancel_icon() != 0) {
+                mImgCancel.setImageResource(chatAssert.getCancel_icon());
+            }
+        }
 
     }
 
@@ -611,11 +656,6 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             close_dialog();
         } else if (i == R.id.mTxtMessage) {
             close_dialog();
-        } else if (i == R.id.mImgRecVideo) {
-            Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-            if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takeVideoIntent, MY_REQUEST_CODE_VIDEO);
-            }
         } else if (i == R.id.mPaymentsRl) {
             close_dialog();
         } else if (i == R.id.mPhotosRl) {
@@ -667,21 +707,32 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             mRvGif.setVisibility(View.GONE);
             mRvStrikers.setVisibility(View.GONE);
             GetStickers();
-        } else if (i == R.id.mImgIconGifStickers) {
+                /* case R.id.mImgIconGifStickers:
+                break;*/
+        } else if (i == R.id.rl_location_gif) {
             if (mKeyBoardGifStrikers.getVisibility() == View.VISIBLE) {
                 ShowHideKeyboard(this, false, mTxtMessage);
-                mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_gif));
+//                    mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_gif));
                 mKeyBoardGifStrikers.setVisibility(View.GONE);
 
             } else {
                 ShowHideKeyboard(this, true, mTxtMessage);
-                mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_keyboard));
+//                    mImgIconGifStickers.setBackground(getResources().getDrawable(R.drawable.ic_keyboard));
                 mProgressGifStrikers.setVisibility(View.VISIBLE);
                 mKeyBoardGifStrikers.setVisibility(View.VISIBLE);
                 mRvGif.setVisibility(View.GONE);
                 mRvStrikers.setVisibility(View.GONE);
                 GetGif();
             }
+            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                /* case R.id.mImgRecVideo:
+                break;*/
+        } else if (i == R.id.rl_record_video) {
+            Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takeVideoIntent, MY_REQUEST_CODE_VIDEO);
+            }
+            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         } else if (i == R.id.mImgCancel) {
             isEditedMsg = false;
             mTxtMessage.setText("");
